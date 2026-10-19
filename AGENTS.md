@@ -1,22 +1,35 @@
-## Development
+# AGENTS.md
 
-When starting the dev server, use background mode:
+Marketing site for R&S Multi Cleaning (Lima, Peru). Astro 7 + Preact + Tailwind CSS v4, Spanish (`es-PE`) content.
 
-```
-astro dev --background
-```
+## Commands
 
-Manage the background server with `astro dev stop`, `astro dev status`, and `astro dev logs`.
+- Node >= 22.12.0, npm (package-lock.json present)
+- `npm run dev` — dev server; run as `npx astro dev --background`, manage with `astro dev stop|status|logs`
+- `npm run build` — production build to `dist/`
+- `npm run preview` — preview build
+- Typecheck: `npx astro check` (uses @astrojs/check + strict tsconfig)
+- No test suite, no lint/format scripts. `eslint`, `prettier`, `eslint-plugin-astro`, `prettier-plugin-astro` are installed but have **no config files** — don't assume lint/format runs in CI (there is no CI config).
+
+## Architecture
+
+- `src/pages/` — routes; `servicios/[slug].astro` generates per-service pages from data
+- `src/data/*.ts` — all site copy and business data (services, testimonials, FAQ, etc.). **`src/content/` collections are empty/unused** — edit `src/data/`, not `src/content/`
+- `src/components/{layout,sections,ui,widgets,seo}/` — Astro components; `BaseHead.astro` handles SEO (astro-seo)
+- `src/layouts/` — `BaseLayout.astro` (html shell), `PageLayout.astro` (adds header/footer/head)
+- `src/styles/global.css` — Tailwind v4 CSS-first config: brand color/font tokens live in `@theme` here; there is no `tailwind.config.*`
+- `src/utils/wa.ts` — WhatsApp link helpers used by CTAs
+- `src/assets/` — local images imported by components
+
+## Gotchas
+
+- **`site` is not set in `astro.config.mjs`** — `@astrojs/sitemap` then silently skips sitemap generation (warns at build). Set `site` before expecting sitemaps or correct canonical URLs.
+- Sitemap filter excludes `/gracias` and `/legal/`; `trailingSlash: 'never'` — keep links consistent with no trailing slash.
+- Icons: `astro-icon` bundles only the lucide icons whitelisted in `astro.config.mjs` → `icon({ include: { lucide: [...] } })`. New icons must be added there or they 404.
+- Fonts (Montserrat, Open Sans) are fetched from Google Fonts at build/dev time — builds need network access. CSS vars `--font-display` / `--font-body` come from `astro.config.mjs` fonts, referenced in `global.css`.
+- `src/data/empresa.ts` still has placeholder TODOs (phone, RUC, email) — confirm with the owner before treating business data as final.
+- `CLAUDE.md` currently duplicates this file; update both or make one a stub.
 
 ## Documentation
 
-Full documentation: https://docs.astro.build
-
-Consult these guides before working on related tasks:
-
-- [Adding pages, dynamic routes, or middleware](https://docs.astro.build/en/guides/routing/)
-- [Working with Astro components](https://docs.astro.build/en/basics/astro-components/)
-- [Using React, Vue, Svelte, or other framework components](https://docs.astro.build/en/guides/framework-components/)
-- [Adding or managing content](https://docs.astro.build/en/guides/content-collections/)
-- [Adding styles or using Tailwind](https://docs.astro.build/en/guides/styling/)
-- [Supporting multiple languages](https://docs.astro.build/en/guides/internationalization/)
+Full docs: https://docs.astro.build — see [Routing](https://docs.astro.build/en/guides/routing/), [Astro components](https://docs.astro.build/en/basics/astro-components/), [Tailwind v4 styling](https://docs.astro.build/en/guides/styling/), [Content collections](https://docs.astro.build/en/guides/content-collections/).
