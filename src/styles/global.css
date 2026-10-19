@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy-50:  #EAF0F7;
+  --color-navy-100: #D3E0EE;
+  --color-navy-500: #194A8C;
+  --color-navy:     #0F2C59;
+  --color-navy-900: #071B36;
+
+  --color-mist:     #E2F6F8;
+  --color-teal-300: #2FBFD1;
+  --color-teal:     #0B8494;
+  --color-teal-ink: #076D7B;
+  --color-teal-900: #054E58;
+
+  --color-green-100: #DCFCE7;
+  --color-green:     #22C55E;
+  --color-green-ink: #15803D;
+
+  --color-ink:       #0B1F3A;
+  --color-slate-ink: #42627A;
+  --color-hairline:  #CBD9E2;
+
+  --font-display: var(--font-display), "Arial Black", sans-serif;
+  --font-body:    var(--font-body), "Segoe UI", sans-serif;
+
+  --shadow-sm: 0 1px 2px rgb(15 44 89 / 0.06);
+  --shadow-md: 0 8px 24px rgb(15 44 89 / 0.10);
+}
+
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+  body { font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.7; color: var(--color-ink); }
+  h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.1; letter-spacing: -0.015em; }
+  :focus-visible { outline: 3px solid var(--color-teal); outline-offset: 2px; }
+}

@@ -1,0 +1,18 @@
+export const distritos: string[] = [
+  "Miraflores",
+  "San Isidro",
+  "Surco",
+  "La Molina",
+  "San Borja",
+  "Magdalena del Mar",
+  "Barranco",
+  "Jesús María",
+  "Lince",
+  "Ate",
+  "San Juan de Miraflores",
+  "Chorrillos",
+  "Pueblo Libre",
+  "San Miguel",
+  "Los Olivos",
+  "Independencia",
+];
