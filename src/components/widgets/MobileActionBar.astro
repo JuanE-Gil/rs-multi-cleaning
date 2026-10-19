@@ -1,0 +1,33 @@
+---
+import { empresa } from "../../data/empresa";
+import { waLink } from "../../utils/wa";
+---
+
+<div
+  class="fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 border-t border-hairline bg-white shadow-md md:hidden"
+  style="padding-bottom: env(safe-area-inset-bottom)"
+>
+  <a
+    href={`tel:${empresa.telefonoFijo.replace(/[^\d+]/g, "")}`}
+    class="flex min-h-14 items-center justify-center gap-2 border-r border-hairline text-sm font-bold text-navy"
+  >
+    ☎ Llamar
+  </a>
+  <a
+    href={waLink("barra-movil")}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="flex min-h-14 items-center justify-center gap-2 bg-[#1FA855] text-sm font-bold text-white"
+  >
+    <svg
+  width="20"
+  height="20"
+  viewBox="0 0 24 24"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.06-1.33A9.94 9.94 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2Zm0 18a7.9 7.9 0 0 1-4.03-1.1l-.29-.17-3 .79.8-2.92-.19-.3A7.93 7.93 0 1 1 12 20Z" />
+</svg>
+WhatsApp
+  </a>
+</div>
