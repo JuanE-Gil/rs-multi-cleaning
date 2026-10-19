@@ -1,0 +1,30 @@
+---
+import Container from '../ui/Container.astro';
+import SectionHeading from '../ui/SectionHeading.astro';
+import ImagePlaceholder from '../ui/ImagePlaceholder.astro';
+import { equipos } from '../../data/equipos';
+---
+
+<section class="bg-navy py-16 md:py-24 rounded-lg shadow-sm">
+  <Container>
+    <SectionHeading
+      tone="light"
+      eyebrow="Equipamiento"
+      title="Maquinaria profesional, no doméstica"
+      subtitle="Kärcher Puzzi para inyección-extracción y Kärcher SC 2 para vapor a alta temperatura."
+    />
+
+    <div class="mt-10 grid gap-5 md:grid-cols-2">
+      {equipos.map((eq) => (
+        <div class="flex gap-4 rounded-lg border border-white/10 bg-white/5 p-5">
+          <ImagePlaceholder label={eq.imagenAlt} ratio="1/1" class="w-24 shrink-0" />
+          <div>
+            <h3 class="font-display text-base font-bold text-white">{eq.nombre}</h3>
+            <p class="text-xs font-bold uppercase tracking-wide text-green">{eq.descripcion}</p>
+            <p class="mt-2 text-sm text-mist/90">{eq.beneficio}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </Container>
+</section>

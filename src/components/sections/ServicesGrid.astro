@@ -1,0 +1,40 @@
+---
+import Container from "../ui/Container.astro";
+import SectionHeading from "../ui/SectionHeading.astro";
+
+import { serviciosDestacados } from "../../data/servicios";
+import Card from "../ui/Card.astro";
+import ImagePlaceholder from "../ui/ImagePlaceholder.astro";
+---
+
+<section
+  id="servicios"
+  class="py-16 md:py-24 border border-hairline rounded-lg shadow-sm"
+>
+  <Container>
+    <SectionHeading
+      eyebrow="Servicios"
+      title="Seis servicios, un solo proveedor"
+      subtitle="Cada tratamiento se adapta al material: agua, seco, vapor."
+    />
+
+    <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {serviciosDestacados.map((s) => (
+        <Card class="flex flex-col gap-3">
+          <ImagePlaceholder label={s.imagenAlt} ratio="16/9" />
+          <h3 class="font-display text-lg font-bold text-navy">{s.nombre}</h3>
+          <p class="text-sm text-slate-ink">{s.metodo}</p>
+          <div class="mt-auto flex items-center justify-between pt-2">
+            <!-- <span class="text-sm font-bold text-teal-ink">{s.precioDesde}</span> -->
+            <a
+              href={`/servicios/${s.slug}`}
+              class="text-sm font-bold text-teal-ink hover:text-navy"
+            >
+              Ver detalle →
+            </a>
+          </div>
+        </Card>
+      ))}
+    </div>
+  </Container>
+</section>

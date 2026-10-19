@@ -1,17 +1,37 @@
 ---
+import BeforeAfter from "../components/sections/BeforeAfter.astro";
+import BiosafetyBlock from "../components/sections/BiosafetyBlock.astro";
+import CoverageMap from "../components/sections/CoverageMap.astro";
+import EquipmentShowcase from "../components/sections/EquipmentShowcase.astro";
+import FaqAccordion from "../components/sections/FaqAccordion.astro";
+import FinalCta from "../components/sections/FinalCta.astro";
+import Hero from "../components/sections/Hero.astro";
+import ProcessSteps from "../components/sections/ProcessSteps.astro";
+import SegmentsSplit from "../components/sections/SegmentsSplit.astro";
+import ServicesGrid from "../components/sections/ServicesGrid.astro";
+import Testimonials from "../components/sections/Testimonials.astro";
+import TrustBar from "../components/sections/TrustBar.astro";
+import Container from "../components/ui/Container.astro";
 
+import PageLayout from "../layouts/PageLayout.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<PageLayout
+  class:list={`py-16 space-y-8 min-h-dvh`}
+  title="Lavado de muebles y colchones a domicilio en Lima | R&S Multi Cleaning"
+  description="Lavado y desinfección de sofás, colchones, alfombras y cortinas a domicilio en Lima. Insumos biodegradables, maquinaria Kärcher. Cotiza por WhatsApp."
+  currentPage="inicio"
+>
+  <Hero />
+  <TrustBar />
+  <ServicesGrid />
+  <BeforeAfter />
+  <ProcessSteps />
+  <EquipmentShowcase />
+  <BiosafetyBlock />
+  <SegmentsSplit />
+  <Testimonials />
+  <CoverageMap />
+  <FaqAccordion />
+  <FinalCta />
+</PageLayout>

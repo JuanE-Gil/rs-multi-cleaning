@@ -1,0 +1,31 @@
+---
+import { segmentos } from "../../data/segmentos";
+import Card from "../ui/Card.astro";
+import Container from "../ui/Container.astro";
+import SectionHeading from "../ui/SectionHeading.astro";
+---
+
+<section class="bg-mist py-16 md:py-24 rounded-lg shadow-md">
+  <Container>
+    
+    <SectionHeading
+      eyebrow="Segmentos"
+      title="Cada cliente entra por su puerta"
+    />
+
+    <div class="mt-10 grid gap-5 sm:grid-cols-3">
+
+        {segmentos.map((seg) => (
+        <Card>
+          <h3 class="font-display text-lg font-bold text-navy">{seg.nombre}</h3>
+          <p class="mt-1 text-sm text-slate-ink">{seg.descripcion}</p>
+          <a href={seg.href} class="mt-4 inline-block text-sm font-bold text-teal-ink hover:text-navy">
+            Ver planes →
+          </a>
+        </Card>
+        ))}
+
+    </div>
+
+</Container>
+</section>

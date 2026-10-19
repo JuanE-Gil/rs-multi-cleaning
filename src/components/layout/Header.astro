@@ -1,0 +1,52 @@
+---
+import { empresa } from '../../data/empresa';
+import { navLinks } from '../../data/nav';
+import Button from '../ui/Button.astro';
+import Container from '../ui/Container.astro';
+import NavMobile from './NavMobile.astro';
+
+interface Props {
+  currentPage: string;
+}
+
+const { currentPage } = Astro.props;
+---
+
+<header class="sticky top-0 z-40 bg-navy shadow-md">
+  <Container class="flex h-18 items-center justify-between gap-4">
+    <a href="/" class="shrink-0" aria-label={`${empresa.nombre} — inicio`}>
+      <!-- TODO: reemplazar por src/assets/brand/isologotipo-blanco.svg vía astro:assets -->
+      <span class="font-display text-lg font-extrabold text-white">
+        R&S <span class="text-teal-300">MULTI</span>
+      </span>
+    </a>
+
+    <nav aria-label="Principal" class="hidden items-center gap-7 md:flex">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          aria-current={link.key === currentPage ? 'page' : undefined}
+          class:list={[
+            'font-body text-sm font-semibold transition-colors',
+            link.key === currentPage ? 'text-green' : 'text-mist hover:text-white',
+          ]}
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
+
+    <div class="flex items-center gap-4">
+      <a
+        href={`tel:${empresa.telefonoFijo.replace(/[^\d+]/g, '')}`}
+        class="hidden text-sm font-semibold text-mist hover:text-white lg:inline"
+      >
+        ☎ {empresa.telefonoFijo}
+      </a>
+      <Button href="/contacto" variant="primary" class="hidden sm:inline-flex">
+        Cotizar
+      </Button>
+      <NavMobile currentPage={currentPage} />
+    </div>
+  </Container>
+</header>

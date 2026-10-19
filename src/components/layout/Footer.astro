@@ -1,0 +1,66 @@
+---
+import Container from '../ui/Container.astro';
+import { navLinks } from '../../data/nav';
+import { empresa } from '../../data/empresa';
+
+// TODO: sustituir por getCollection('servicios') cuando exista la colección (fase de Servicios)
+const serviciosFooter = [
+  { label: 'Sofás y tapicería', href: '/servicios/lavado-de-sofas-y-tapiceria' },
+  { label: 'Colchones', href: '/servicios/desinfeccion-de-colchones' },
+  { label: 'Alfombras', href: '/servicios/lavado-de-alfombras' },
+  { label: 'Cortinas', href: '/servicios/cortinas-y-persianas' },
+];
+
+const anio = new Date().getFullYear();
+---
+
+<footer class="bg-navy-900 pb-20 text-mist md:pb-0">
+  <Container class="py-14">
+    <div class="grid gap-10 md:grid-cols-[1.3fr_1fr_1fr_1fr]">
+      <div>
+        <span class="font-display text-lg font-extrabold text-white">
+          R&S <span class="text-teal-300">MULTI</span>
+        </span>
+        <p class="mt-3 max-w-[26ch] text-sm leading-relaxed text-mist/80">
+          Limpieza y desinfección de muebles, colchones y tapicería a domicilio en Lima.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-display text-sm font-bold text-white">Servicios</h3>
+        <ul class="mt-3 space-y-2">
+          {serviciosFooter.map((s) => (
+            <li><a href={s.href} class="text-sm hover:text-white">{s.label}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-display text-sm font-bold text-white">Empresa</h3>
+        <ul class="mt-3 space-y-2">
+          {navLinks.map((link) => (
+            <li><a href={link.href} class="text-sm hover:text-white">{link.label}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-display text-sm font-bold text-white">Contacto</h3>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li>{empresa.telefonoFijo}</li>
+          <li>{empresa.correo}</li>
+          <li>{empresa.horario}</li>
+          <li>{empresa.direccion}</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-10 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-mist/70 sm:flex-row sm:items-center sm:justify-between">
+      <p>© {anio} {empresa.nombre} · RUC {empresa.ruc} · Lima, Perú</p>
+      <div class="flex gap-4">
+        <a href="/legal/politica-de-privacidad" class="hover:text-white">Privacidad</a>
+        <a href="/legal/terminos-y-condiciones" class="hover:text-white">Términos</a>
+      </div>
+    </div>
+  </Container>
+</footer>

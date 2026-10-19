@@ -1,0 +1,30 @@
+---
+import Container from '../ui/Container.astro';
+import SectionHeading from '../ui/SectionHeading.astro';
+import ImagePlaceholder from '../ui/ImagePlaceholder.astro';
+import { distritos } from '../../data/distritos';
+
+const destacados = distritos.slice(0, 11);
+---
+
+<section class="py-16 md:py-24 border border-hairline rounded-lg shadow-md">
+  <Container class="grid items-center gap-10 md:grid-cols-[0.85fr_1.15fr]">
+    <ImagePlaceholder label="Mapa — Lima Metropolitana" ratio="4/3" />
+
+    <div>
+      <SectionHeading eyebrow="Cobertura" title="Atendemos 30+ distritos de Lima" />
+      <ul class="mt-5 flex flex-wrap gap-2">
+        {destacados.map((d) => (
+          <li>
+            <span class="inline-block rounded-full bg-mist px-3 py-1.5 text-xs font-bold text-teal-ink">{d}</span>
+          </li>
+        ))}
+        <li>
+          <a href="/cobertura" class="inline-block rounded-full border border-teal px-3 py-1.5 text-xs font-bold text-teal-ink hover:bg-mist">
+            + ver todos
+          </a>
+        </li>
+      </ul>
+    </div>
+  </Container>
+</section>

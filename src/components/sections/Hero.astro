@@ -1,0 +1,47 @@
+---
+import Container from "../ui/Container.astro";
+import Badge from "../ui/Badge.astro";
+import Button from "../ui/Button.astro";
+import ImagePlaceholder from "../ui/ImagePlaceholder.astro";
+import { waLink } from "../../utils/wa";
+---
+
+<section class="bg-mist rounded-lg shadow-sm">
+  <Container class="grid items-center gap-10 py-14 md:grid-cols-2 md:py-20">
+    <div>
+      <Badge tone="green" class="mb-4">
+        ● Insumos biodegradables
+      </Badge>
+      
+      <h1 class="font-display font-bold text-[#0f2942] max-w-xl text-3xl sm:text-4xl lg:text-[2.6rem] leading-[1.15] tracking-tight">
+        Lavado y desinfección de muebles y colchones{" "}
+        <span class="text-[#007a87]">a domicilio en Lima</span>
+      </h1>
+
+      <p class="mt-5 max-w-[46ch] text-lg leading-relaxed text-slate-ink">
+        Recuperamos sofás, colchones, alfombras y cortinas con
+        inyección-extracción y vapor a alta temperatura. Insumos biodegradables,
+        seguros para niños y mascotas.
+      </p>
+
+      <div class="mt-7 flex flex-wrap gap-3">
+        <Button href="/contacto" variant="primary" size="lg">
+          Solicitar cotización
+        </Button>
+        <Button href={waLink("hero-home")} variant="wa" size="lg">
+          WhatsApp directo
+        </Button>
+      </div>
+
+      <p class="mt-5 text-sm font-semibold text-slate-ink">
+        ✓ Respuesta en 30 min&nbsp; ✓ Kärcher Puzzi&nbsp; ✓ Anti ácaros
+      </p>
+    </div>
+
+    <ImagePlaceholder
+      label="Antes / Después — sofá 3 cuerpos"
+      ratio="4/3"
+      class="w-full"
+    />
+  </Container>
+</section>

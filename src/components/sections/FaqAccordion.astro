@@ -1,0 +1,23 @@
+---
+import Container from '../ui/Container.astro';
+import SectionHeading from '../ui/SectionHeading.astro';
+import { faqHome } from '../../data/faq';
+---
+
+<section class="bg-mist py-16 md:py-24 rounded-lg shadow-md">
+  <Container class="max-w-3xl">
+    <SectionHeading eyebrow="Preguntas frecuentes" title="Lo que todos preguntan antes de agendar" />
+
+    <div class="mt-8 space-y-3">
+      {faqHome.map((item) => (
+        <details class="group rounded-lg border border-hairline bg-white open:shadow-sm">
+          <summary class="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 font-display text-sm font-bold text-navy [&::-webkit-details-marker]:hidden">
+            {item.pregunta}
+            <span class="shrink-0 text-teal transition-transform group-open:rotate-45" aria-hidden="true">+</span>
+          </summary>
+          <p class="px-5 pb-4 text-sm leading-relaxed text-slate-ink">{item.respuesta}</p>
+        </details>
+      ))}
+    </div>
+  </Container>
+</section>
