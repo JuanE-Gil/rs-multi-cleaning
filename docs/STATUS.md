@@ -11,11 +11,11 @@ Actualizar solo cuando cambie un blocker o se retire algo. La estructura vive en
 |---|---|---|
 | 1 | Tres páginas son archivos de 0 bytes: `src/pages/404.astro`, `cobertura.astro` y `gracias.astro`. Renderizan en blanco. | Tamaño 0 en disco; build del 2026-10-22 |
 | 2 | `site` sin definir en `astro.config.mjs` → `@astrojs/sitemap` no genera sitemap ni URLs canónicas. | `astro.config.mjs`, warning del build |
-| 3 | Datos de negocio placeholder en `src/data/empresa.ts`: teléfono, correo, RUC y dirección tienen TODO. | Comentarios TODO en el archivo |
+| 3 | Datos de negocio placeholder en `src/data/empresa.ts`: teléfono, correo, RUC y dirección tienen TODO. El flyer del cliente muestra el WhatsApp **977 383 121**, pendiente de confirmar antes de publicarlo. | Comentarios TODO en el archivo |
 | 4 | Enlaces a `/legal/politica-de-privacidad` y `/legal/terminos-y-condiciones` sin página que los resuelva. | `Footer.astro`, `FinalCta.astro` |
 | 5 | `PUBLIC_FORM_ENDPOINT` no definido: el formulario de cotización postea a `#`. | `FinalCta.astro` línea 9 |
 | 6 | Sin precios reales: `ServicesGrid` oculta `precioDesde` y las páginas de detalle no publican tarifa, solo explican qué la hace variar. | `src/data/servicios.ts` |
-| 7 | Solo el servicio de sofás tiene fotos antes/después. Los otros cinco muestran un placeholder honesto hasta que lleguen los casos de fase 0. | `src/data/servicios.ts` (`casoId`), `src/data/casos.ts` |
+| 7 | Solo el servicio de tapicería en tela tiene fotos antes/después. Los otros ocho muestran un placeholder honesto hasta que lleguen los casos de fase 0. | `src/data/servicios.ts` (`casoId`), `src/data/casos.ts` |
 | 8 | `servicios/index.astro` sigue siendo una maqueta de un solo título; el hub del informe (filtro por segmento y tabla método/material) no existe. | `src/pages/servicios/index.astro` |
 
 ## Decisiones pendientes

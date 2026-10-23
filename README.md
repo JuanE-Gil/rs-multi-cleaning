@@ -13,7 +13,7 @@ Leyenda: ✅ completa · 🟡 parcial · ⬜ pendiente.
 | **0 — Insumos del cliente** | Fotos reales antes/después, precios de referencia, RUC, teléfono, horarios y seis testimonios autorizados. Sin esto el sitio se ve genérico y puede publicar un teléfono equivocado. | ⬜ Pendiente — checkpoint **2026-11-05** |
 | **1 — Base técnica** | Proyecto Astro, tokens de marca en `@theme`, fuentes, layouts, Header/Footer y componentes UI reutilizables. | ✅ Completa |
 | **2 — Home** | Las 14 piezas del informe están montadas: header, doce secciones y footer. El hero usa fotos antes/después reales y los testimonios ya no muestran estrellas inventadas. | ✅ Completa |
-| **3 — Servicios** | Seis páginas de detalle generadas con señales, proceso, qué incluye, qué no incluye, FAQ y enlaces internos. Falta el hub: `servicios/index.astro` sigue siendo una maqueta. | 🟡 Parcial |
+| **3 — Servicios** | Nueve páginas de detalle generadas desde el catálogo del flyer del cliente, con señales, proceso, qué incluye, qué no incluye, FAQ y enlaces internos. Falta el hub: `servicios/index.astro` sigue siendo una maqueta. | 🟡 Parcial |
 | **4 — Cierre** | `quienes-somos`, `contacto` y `servicios` son maquetas con un solo título. `cobertura`, `gracias` y `404` están vacías. Las páginas legales no existen aunque el footer las enlaza. | 🟡 Parcial |
 | **5 — Medición** | Analítica, eventos de WhatsApp con origen, Search Console y Lighthouse CI. Nada iniciado; sin esto no se puede comprobar el objetivo de 4% de conversión. | ⬜ Pendiente |
 | **6 — Crecimiento** | Páginas por distrito, blog técnico y CRM. Fuera del alcance actual. | ⬜ Pendiente |
