@@ -32,7 +32,6 @@ Actualizar solo cuando cambie un blocker o se retire algo. La estructura vive en
 | Path / concepto | Por qué se retiró | Reemplazo | Condición para recrear |
 |---|---|---|---|
 | `src/content/` | Colecciones vacías; el contenido vive en `src/data/`. | `src/data/*.ts` | Solo con una decisión nueva de adoptar content collections |
-| Contenido starter de `README.md` | Boilerplate de Astro; no describe el proyecto. | Pendiente: mapa del proyecto | Al reescribir el README |
 | `CLAUDE.md` | Duplicaba `AGENTS.md` mediante hardlink y derivaba. | `AGENTS.md` | Solo si un harness exige `CLAUDE.md` |
 
 ## Umbrales y restricciones

@@ -1,43 +1,53 @@
-# Astro Starter Kit: Minimal
+# R&S Multi Cleaning — Sitio corporativo
+
+Sitio de captación de cotizaciones para R&S Multi Cleaning S.A.C. (Lima). Vende un servicio concreto: lavado y desinfección de sofás, colchones, alfombras y cortinas a domicilio. Construido con Astro 7 y Tailwind CSS 4; sin backend ni base de datos.
+
+> **El build está roto hoy.** `npm run build` falla por `src/pages/servicios/[slug].astro` vacío. Detalle y evidencia en [`docs/STATUS.md`](docs/STATUS.md).
+
+## Fases del proyecto
+
+Leyenda: ✅ completa · 🟡 parcial · ⬜ pendiente.
+
+| Fase | Qué entrega | Estado |
+|---|---|---|
+| **0 — Insumos del cliente** | Fotos reales antes/después, precios de referencia, RUC, teléfono, horarios y seis testimonios autorizados. Sin esto el sitio se ve genérico y puede publicar un teléfono equivocado. | ⬜ Pendiente — checkpoint **2026-11-05** |
+| **1 — Base técnica** | Proyecto Astro, tokens de marca en `@theme`, fuentes, layouts, Header/Footer y componentes UI reutilizables. | ✅ Completa |
+| **2 — Home** | Doce de las catorce secciones del informe están montadas con datos de `src/data/`. Faltan dos y reemplazar placeholders. | 🟡 Parcial |
+| **3 — Servicios** | Los seis servicios y su página hub tienen datos. Las páginas de detalle no existen: `servicios/[slug].astro` está vacío y es la causa del build roto. | 🟡 Bloqueada |
+| **4 — Cierre** | `quienes-somos`, `contacto` y `servicios` son maquetas con un solo título. `cobertura`, `gracias` y `404` están vacías. Las páginas legales no existen aunque el footer las enlaza. | 🟡 Parcial |
+| **5 — Medición** | Analítica, eventos de WhatsApp con origen, Search Console y Lighthouse CI. Nada iniciado; sin esto no se puede comprobar el objetivo de 4% de conversión. | ⬜ Pendiente |
+| **6 — Crecimiento** | Páginas por distrito, blog técnico y CRM. Fuera del alcance actual. | ⬜ Pendiente |
+
+Si los insumos de la fase 0 no llegan antes del checkpoint, se publica un one-pager de cinco secciones con CTA de WhatsApp en lugar del sitio completo. Decisión registrada en [`docs/HISTORY.md`](docs/HISTORY.md).
+
+## Mapa del proyecto
+
+| Necesitas | Ve a | Verifica con |
+|---|---|---|
+| Cambiar textos, precios o servicios | `src/data/*.ts` | `npx astro check` |
+| Editar una sección de la home | `src/components/sections/` y `src/pages/index.astro` | `npm run build` |
+| Cambiar colores o tipografía | `src/styles/global.css` (`@theme`) | `npm run build` |
+| Añadir una página | `src/pages/` (la ruta es el nombre del archivo) | `npm run build` |
+| Ajustar SEO o meta tags | `src/components/seo/BaseHead.astro` | Inspeccionar el HTML generado |
+| Cambiar enlaces de WhatsApp | `src/utils/wa.ts` (`waLink`) | Abrir un CTA en el navegador |
+| Actualizar teléfono, RUC o correo | `src/data/empresa.ts` | Buscar `TODO` en el archivo |
+
+La especificación completa vive fuera del repositorio: `../INFORME_LANDING/INFORME_LANDING_RS_MULTI_CLEANING.md`.
+
+## Cómo correrlo
+
+Requiere Node >= 22.12.0 y conexión a internet (las fuentes se descargan de Google Fonts).
 
 ```sh
-npm create astro@latest -- --template minimal
+npm install
+npm run dev       # servidor local; en segundo plano: npx astro dev --background
+npm run build     # build de producción (hoy falla)
+npm run preview   # previsualizar el build
+npx astro check   # typecheck
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Documentación
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- [`docs/STATUS.md`](docs/STATUS.md) — blockers, decisiones pendientes y delete-zone. Léelo antes de tocar código.
+- [`docs/HISTORY.md`](docs/HISTORY.md) — decisiones durables del proyecto.
+- [`AGENTS.md`](AGENTS.md) — reglas y convenciones para agentes.
