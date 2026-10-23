@@ -11,7 +11,7 @@ Actualizar solo cuando cambie un blocker o se retire algo. La estructura vive en
 |---|---|---|
 | 1 | Tres páginas son archivos de 0 bytes: `src/pages/404.astro`, `cobertura.astro` y `gracias.astro`. Renderizan en blanco. | Tamaño 0 en disco; build del 2026-10-22 |
 | 2 | `site` sin definir en `astro.config.mjs` → `@astrojs/sitemap` no genera sitemap ni URLs canónicas. | `astro.config.mjs`, warning del build |
-| 3 | Datos de negocio placeholder en `src/data/empresa.ts`: teléfono, correo, RUC y dirección tienen TODO. El flyer del cliente muestra el WhatsApp **977 383 121**, pendiente de confirmar antes de publicarlo. | Comentarios TODO en el archivo |
+| 3 | Horario y dirección siguen sin confirmar en `src/data/empresa.ts`; teléfono, WhatsApp, correo y RUC ya son los datos reales de las tarjetas del cliente. | Comentarios TODO en el archivo |
 | 4 | Enlaces a `/legal/politica-de-privacidad` y `/legal/terminos-y-condiciones` sin página que los resuelva. | `Footer.astro`, `FinalCta.astro` |
 | 5 | `PUBLIC_FORM_ENDPOINT` no definido: el formulario de cotización postea a `#`. | `FinalCta.astro` línea 9 |
 | 6 | Sin precios reales: `ServicesGrid` oculta `precioDesde` y las páginas de detalle no publican tarifa, solo explican qué la hace variar. | `src/data/servicios.ts` |
