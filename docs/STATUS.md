@@ -17,6 +17,7 @@ Actualizar solo cuando cambie un blocker o se retire algo. La estructura vive en
 | 6 | Sin precios reales: `ServicesGrid` oculta `precioDesde` y las páginas de detalle no publican tarifa, solo explican qué la hace variar. | `src/data/servicios.ts` |
 | 7 | Solo el servicio de tapicería en tela tiene fotos antes/después. Los otros ocho muestran un placeholder honesto hasta que lleguen los casos de fase 0. | `src/data/servicios.ts` (`casoId`), `src/data/casos.ts` |
 | 8 | `servicios/index.astro` sigue siendo una maqueta de un solo título; el hub del informe (filtro por segmento y tabla método/material) no existe. | `src/pages/servicios/index.astro` |
+| 9 | `/contacto` no tiene mapa: no hay dirección comercial confirmada y se omitió el iframe de Maps por peso. | `src/pages/contacto.astro` |
 
 ## Decisiones pendientes
 
@@ -35,9 +36,11 @@ Actualizar solo cuando cambie un blocker o se retire algo. La estructura vive en
 | `src/content/` | Colecciones vacías; el contenido vive en `src/data/`. | `src/data/*.ts` | Solo con una decisión nueva de adoptar content collections |
 | `CLAUDE.md` | Duplicaba `AGENTS.md` mediante hardlink y derivaba. | `AGENTS.md` | Solo si un harness exige `CLAUDE.md` |
 | Estrellas ★★★★★ en testimonios | Se mostraban en los tres testimonios sin reseñas reales detrás; el informe prohíbe inventar ratings. | Texto del testimonio, sin rating | Solo con reseñas verificables y consentimiento del cliente |
+| `favicon.svg` y `favicon.ico` de Astro | Eran los íconos por defecto del starter, no de la marca. | `favicon-32.png` y `apple-touch-icon.png` generados desde el logo | Solo si se consigue una versión vectorial del emblema |
 
 ## Umbrales y restricciones
 
 - Build y dev descargan Montserrat y Open Sans desde Google Fonts: requieren red.
 - Iconos: solo los 5 permitidos en `astro.config.mjs`; añadir nuevos ahí o dan 404.
 - Sin tests, sin configuración de lint y sin CI.
+- Logo: el cliente solo entregó PNG con fondo blanco (original 944×1124). El header y el footer usan un badge circular; pedir SVG o PNG transparente al diseñador para una versión limpia.

@@ -14,7 +14,7 @@ Leyenda: ✅ completa · 🟡 parcial · ⬜ pendiente.
 | **1 — Base técnica** | Proyecto Astro, tokens de marca en `@theme`, fuentes, layouts, Header/Footer y componentes UI reutilizables. | ✅ Completa |
 | **2 — Home** | Las 14 piezas del informe están montadas: header, doce secciones y footer. El hero usa fotos antes/después reales y los testimonios ya no muestran estrellas inventadas. | ✅ Completa |
 | **3 — Servicios** | Nueve páginas de detalle generadas desde el catálogo del flyer del cliente, con señales, proceso, qué incluye, qué no incluye, FAQ y enlaces internos. Falta el hub: `servicios/index.astro` sigue siendo una maqueta. | 🟡 Parcial |
-| **4 — Cierre** | `quienes-somos`, `contacto` y `servicios` son maquetas con un solo título. `cobertura`, `gracias` y `404` están vacías. Las páginas legales no existen aunque el footer las enlaza. | 🟡 Parcial |
+| **4 — Cierre** | `contacto` ya tiene formulario, canales directos y expectativa de respuesta. `quienes-somos` y el hub de servicios siguen siendo maquetas; `cobertura`, `gracias` y `404` están vacías; las legales no existen aunque el footer las enlaza. | 🟡 Parcial |
 | **5 — Medición** | Analítica, eventos de WhatsApp con origen, Search Console y Lighthouse CI. Nada iniciado; sin esto no se puede comprobar el objetivo de 4% de conversión. | ⬜ Pendiente |
 | **6 — Crecimiento** | Páginas por distrito, blog técnico y CRM. Fuera del alcance actual. | ⬜ Pendiente |
 
@@ -30,6 +30,7 @@ Si los insumos de la fase 0 no llegan antes del checkpoint, se publica un one-pa
 | Añadir una página | `src/pages/` (la ruta es el nombre del archivo) | `npm run build` |
 | Ajustar SEO o meta tags | `src/components/seo/BaseHead.astro` | Inspeccionar el HTML generado |
 | Cambiar enlaces de WhatsApp | `src/utils/wa.ts` (`waLink`) | Abrir un CTA en el navegador |
+| Cambiar logo o favicon | `public/images/logo.png`, `public/favicon-32.png`, `public/apple-touch-icon.png` | `npm run build` |
 | Actualizar teléfono, RUC o correo | `src/data/empresa.ts` | Buscar `TODO` en el archivo |
 
 La especificación completa vive fuera del repositorio: `../INFORME_LANDING/INFORME_LANDING_RS_MULTI_CLEANING.md`.
