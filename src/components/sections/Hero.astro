@@ -2,8 +2,10 @@
 import Container from "../ui/Container.astro";
 import Badge from "../ui/Badge.astro";
 import Button from "../ui/Button.astro";
-import ImagePlaceholder from "../ui/ImagePlaceholder.astro";
+import { casosAntesDespues } from "../../data/casos";
 import { waLink } from "../../utils/wa";
+
+const caso = casosAntesDespues[0];
 ---
 
 <section class="bg-mist rounded-lg shadow-sm">
@@ -38,10 +40,33 @@ import { waLink } from "../../utils/wa";
       </p>
     </div>
 
-    <ImagePlaceholder
-      label="Antes / Después — sofá 3 cuerpos"
-      ratio="4/3"
-      class="w-full"
-    />
+    <div class="grid grid-cols-2 gap-2">
+      <figure class="relative overflow-hidden rounded-lg">
+        <img
+          src={caso.antesImg}
+          alt={caso.antesAlt}
+          width="800"
+          height="600"
+          class="h-full w-full object-cover"
+          loading="eager"
+        />
+        <figcaption class="absolute left-2 top-2 rounded-full bg-black/65 px-2.5 py-0.5 text-xs font-bold uppercase tracking-wide text-white">
+          Antes
+        </figcaption>
+      </figure>
+      <figure class="relative overflow-hidden rounded-lg">
+        <img
+          src={caso.despuesImg}
+          alt={caso.despuesAlt}
+          width="800"
+          height="600"
+          class="h-full w-full object-cover"
+          loading="eager"
+        />
+        <figcaption class="absolute left-2 top-2 rounded-full bg-teal px-2.5 py-0.5 text-xs font-bold uppercase tracking-wide text-white">
+          Después
+        </figcaption>
+      </figure>
+    </div>
   </Container>
 </section>

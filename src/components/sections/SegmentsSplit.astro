@@ -20,7 +20,7 @@ import SectionHeading from "../ui/SectionHeading.astro";
           <h3 class="font-display text-lg font-bold text-navy">{seg.nombre}</h3>
           <p class="mt-1 text-sm text-slate-ink">{seg.descripcion}</p>
           <a href={seg.href} class="mt-4 inline-block text-sm font-bold text-teal-ink hover:text-navy">
-            Ver planes →
+            {seg.cta} →
           </a>
         </Card>
         ))}
