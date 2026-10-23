@@ -11,14 +11,14 @@ const { origen } = Astro.props;
 href={waLink(origen)}
 target="_blank" rel="noopener noreferrer" aria-label="Escribir por WhatsApp"
 class="fixed bottom-6 right-6 z-40 hidden h-14 w-14 items-center justify-center
-rounded-full bg-wa text-white shadow-md transition-transform
-hover:scale-105 md:flex" >
+rounded-full bg-wa text-white shadow-md transition-shadow
+hover:shadow-lg md:flex" >
 <svg
+  aria-hidden="true"
   width="28"
   height="28"
   viewBox="0 0 24 24"
   fill="currentColor"
-  aria-hidden="true"
 >
   <path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.06-1.33A9.94 9.94 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2Zm0 18a7.9 7.9 0 0 1-4.03-1.1l-.29-.17-3 .79.8-2.92-.19-.3A7.93 7.93 0 1 1 12 20Z" />
 </svg>

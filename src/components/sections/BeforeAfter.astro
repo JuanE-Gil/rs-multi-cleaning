@@ -54,8 +54,9 @@ const caso = casosAntesDespues[0];
         class="absolute top-0 bottom-0 z-20 w-0.5 bg-white shadow-[0_0_10px_rgba(0,0,0,0.5)]"
         style="left: 50%;"
       >
-        <div class="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-white text-navy shadow-lg transition-transform group-hover:scale-110">
+        <div class="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-white text-navy shadow-lg transition-shadow group-hover:shadow-xl">
           <svg
+            aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             class="h-5 w-5"
             fill="none"
@@ -80,6 +81,7 @@ const caso = casosAntesDespues[0];
         max="100"
         value="50"
         aria-label="Deslizar para comparar antes y después"
+        aria-valuetext="50% antes"
         class="absolute inset-0 z-30 h-full w-full cursor-ew-resize opacity-0"
       />
     </div>
@@ -96,6 +98,7 @@ const caso = casosAntesDespues[0];
       const val = (e.target as HTMLInputElement).value;
       antes.style.clipPath = `inset(0 ${100 - Number(val)}% 0 0)`;
       handle.style.left = `${val}%`;
+      range.setAttribute("aria-valuetext", `${val}% antes`);
     });
   }
 </script>

@@ -12,43 +12,43 @@ const { conCorreo = false } = Astro.props;
 const FORM_ENDPOINT = import.meta.env.PUBLIC_FORM_ENDPOINT ?? "#";
 ---
 
-<form method="POST" action={FORM_ENDPOINT} class="rounded-lg bg-white p-6 shadow-md">
+<form method="POST" action={FORM_ENDPOINT} aria-label="Solicitud de cotización" class="rounded-lg bg-white p-6 shadow-md">
   <!-- Honeypot anti-spam: un bot lo llena, una persona no lo ve -->
   <input type="text" name="empresa_web" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
 
   <div class="space-y-4">
     <div>
-      <label for="nombre" class="text-xs font-bold text-slate-ink">Nombre y apellido *</label>
+      <label for="nombre" class="text-xs font-bold text-slate-ink">Nombre y apellido <span aria-hidden="true">*</span></label>
       <input id="nombre" name="nombre" type="text" required autocomplete="name"
-        class="mt-1 w-full rounded-md border border-hairline px-3 py-2.5 text-sm" />
+        class="mt-1 w-full rounded-md border border-field px-3 py-2.5 text-sm transition-colors hover:border-slate-ink" />
     </div>
 
     <div>
-      <label for="whatsapp" class="text-xs font-bold text-slate-ink">WhatsApp *</label>
+      <label for="whatsapp" class="text-xs font-bold text-slate-ink">WhatsApp <span aria-hidden="true">*</span></label>
       <input id="whatsapp" name="whatsapp" type="tel" required pattern="9[0-9]{8}"
         autocomplete="tel" placeholder="9XXXXXXXX" aria-describedby="whatsapp-hint"
-        class="mt-1 w-full rounded-md border border-hairline px-3 py-2.5 text-sm" />
+        class="mt-1 w-full rounded-md border border-field px-3 py-2.5 text-sm transition-colors hover:border-slate-ink" />
       <p id="whatsapp-hint" class="mt-1 text-xs text-slate-ink">9 dígitos, sin espacios.</p>
     </div>
 
     {conCorreo && (
       <div>
-        <label for="email" class="text-xs font-bold text-slate-ink">Correo electrónico *</label>
+        <label for="email" class="text-xs font-bold text-slate-ink">Correo electrónico <span aria-hidden="true">*</span></label>
         <input id="email" name="email" type="email" required autocomplete="email"
-          class="mt-1 w-full rounded-md border border-hairline px-3 py-2.5 text-sm" />
+          class="mt-1 w-full rounded-md border border-field px-3 py-2.5 text-sm transition-colors hover:border-slate-ink" />
       </div>
     )}
 
     <div>
-      <label for="distrito" class="text-xs font-bold text-slate-ink">Distrito *</label>
+      <label for="distrito" class="text-xs font-bold text-slate-ink">Distrito <span aria-hidden="true">*</span></label>
       <input id="distrito" name="distrito" type="text" required autocomplete="address-level2"
-        class="mt-1 w-full rounded-md border border-hairline px-3 py-2.5 text-sm" />
+        class="mt-1 w-full rounded-md border border-field px-3 py-2.5 text-sm transition-colors hover:border-slate-ink" />
     </div>
 
     <div>
-      <label for="servicio" class="text-xs font-bold text-slate-ink">Servicio requerido *</label>
+      <label for="servicio" class="text-xs font-bold text-slate-ink">Servicio requerido <span aria-hidden="true">*</span></label>
       <select id="servicio" name="servicio" required
-        class="mt-1 w-full rounded-md border border-hairline bg-white px-3 py-2.5 text-sm">
+        class="mt-1 w-full rounded-md border border-field bg-white px-3 py-2.5 text-sm transition-colors hover:border-slate-ink">
         <option value="">Selecciona un servicio</option>
         {serviciosDestacados.map((s) => (
           <option value={s.slug}>{s.nombre}</option>
@@ -57,7 +57,7 @@ const FORM_ENDPOINT = import.meta.env.PUBLIC_FORM_ENDPOINT ?? "#";
     </div>
 
     <div class="flex items-start gap-2 text-xs text-slate-ink">
-      <input id="consentimiento" name="consentimiento" type="checkbox" required class="mt-0.5 size-6 shrink-0" />
+      <input id="consentimiento" name="consentimiento" type="checkbox" required class="mt-0.5 size-6 shrink-0 accent-teal-ink" />
       <label for="consentimiento">
         Acepto la <a href="/legal/politica-de-privacidad" class="font-bold text-teal-ink underline">política de privacidad</a>
       </label>

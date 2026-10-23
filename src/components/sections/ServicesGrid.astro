@@ -28,7 +28,8 @@ import ImagePlaceholder from "../ui/ImagePlaceholder.astro";
             <!-- <span class="text-sm font-bold text-teal-ink">{s.precioDesde}</span> -->
             <a
               href={`/servicios/${s.slug}`}
-              class="inline-flex min-h-6 items-center text-sm font-bold text-teal-ink hover:text-navy"
+              aria-label={`Ver detalle de ${s.nombre}`}
+              class="inline-flex min-h-6 items-center text-sm font-bold text-teal-ink transition-colors hover:text-navy"
             >
               Ver detalle →
             </a>
