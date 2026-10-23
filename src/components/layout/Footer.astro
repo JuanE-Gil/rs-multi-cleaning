@@ -2,14 +2,12 @@
 import Container from '../ui/Container.astro';
 import { navLinks } from '../../data/nav';
 import { empresa } from '../../data/empresa';
+import { serviciosDestacados } from '../../data/servicios';
 
-// TODO: sustituir por getCollection('servicios') cuando exista la colección (fase de Servicios)
-const serviciosFooter = [
-  { label: 'Sofás y tapicería', href: '/servicios/lavado-de-sofas-y-tapiceria' },
-  { label: 'Colchones', href: '/servicios/desinfeccion-de-colchones' },
-  { label: 'Alfombras', href: '/servicios/lavado-de-alfombras' },
-  { label: 'Cortinas', href: '/servicios/cortinas-y-persianas' },
-];
+const serviciosFooter = serviciosDestacados.map((s) => ({
+  label: s.nombre,
+  href: `/servicios/${s.slug}`,
+}));
 
 const anio = new Date().getFullYear();
 ---

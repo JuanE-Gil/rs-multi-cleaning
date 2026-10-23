@@ -8,7 +8,7 @@ export interface Segmento {
 export const segmentos: Segmento[] = [
   {
     nombre: "Hogar",
-    descripcion: "Sofás, colchones, alfombras y cortinas en tu casa.",
+    descripcion: "Tapicería, colchones, alfombras, roller y línea infantil en tu casa.",
     href: "/servicios",
     cta: "Ver servicios",
   },

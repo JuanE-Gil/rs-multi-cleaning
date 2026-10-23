@@ -19,16 +19,17 @@ export interface ServicioResumen {
   faq: ServicioFaq[];
 }
 
+// Catálogo tomado del flyer "Nuestros servicios" del cliente (2026-10-22).
 // TODO: reemplazar este array por getCollection('servicios') cuando exista la content collection
 export const serviciosDestacados: ServicioResumen[] = [
   {
-    slug: "lavado-de-sofas-y-tapiceria",
-    nombre: "Sofás y tapicería",
+    slug: "tapiceria-en-tela",
+    nombre: "Tapicería en tela",
     metodo: "Inyección-extracción + vapor",
-    imagenAlt: "Sofá tapizado limpio",
+    imagenAlt: "Sofá de tela limpio",
     casoId: "sofa-surco-01",
     bajada:
-      "Recupera el color y la textura de tu sofá sin moverlo de casa. Lavado profundo con inyección-extracción y vapor a alta temperatura.",
+      "Lavado por extracción profunda y desinfección. Removemos manchas, suciedad, residuos orgánicos y contaminantes, cuidando fibras y colores.",
     senales: [
       "El sofá se ve apagado o con manchas en los apoyabrazos",
       "Hay olor a humedad, mascota o comida",
@@ -67,12 +68,144 @@ export const serviciosDestacados: ServicioResumen[] = [
     ],
   },
   {
+    slug: "tapiceria-en-cuero",
+    nombre: "Tapicería en cuero",
+    metodo: "pH neutro + nutrición",
+    imagenAlt: "Sofá de cuero limpio",
+    bajada:
+      "Limpieza con productos de pH neutro, más nutrición e hidratación para ayudar a prevenir resequedad y grietas.",
+    senales: [
+      "El cuero se siente seco o áspero al tacto",
+      "Hay grietas finas en apoyabrazos o asientos",
+      "El color se ve opaco por polvo y grasa",
+    ],
+    incluye: [
+      "Diagnóstico del tipo de cuero",
+      "Limpieza con producto de pH neutro",
+      "Nutrición e hidratación del material",
+      "Paño de acabado y recomendaciones de cuidado",
+    ],
+    noIncluye: [
+      "Reparación de grietas profundas o desgarros",
+      "Teñido o repintado del cuero",
+      "Retapizado o cambio de espuma",
+    ],
+    proceso: [
+      "Diagnóstico del cuero y prueba en zona oculta",
+      "Limpieza con pH neutro",
+      "Nutrición e hidratación",
+      "Secado y acabado",
+    ],
+    precioVaria:
+      "el número de cuerpos, el tipo de cuero y su estado. Te damos un rango por WhatsApp con una foto.",
+    faq: [
+      {
+        pregunta: "¿El cuero se puede mojar?",
+        respuesta:
+          "No se satura. Se limpia con producto de pH neutro y paño, sin extracción de agua, y se nutre después.",
+      },
+      {
+        pregunta: "¿Reparan las grietas?",
+        respuesta:
+          "No. La limpieza y nutrición ayudan a prevenir resequedad, pero un cuero ya agrietado necesita un servicio de restauración aparte.",
+      },
+    ],
+  },
+  {
+    slug: "cabeceras-tapizadas",
+    nombre: "Cabeceras tapizadas",
+    metodo: "Extracción + vapor",
+    imagenAlt: "Cabecera de cama tapizada limpia",
+    bajada:
+      "Eliminación de manchas, polvo, grasa, alérgenos y olores, cuidando el tejido y las costuras de la cabecera.",
+    senales: [
+      "La cabecera tiene polvo visible o se siente pegajosa",
+      "Hay manchas en la zona donde se apoya la cabeza",
+      "El ambiente huele a humedad o a guardado",
+    ],
+    incluye: [
+      "Aspirado de toda la superficie",
+      "Pre-spray y extracción controlada",
+      "Vapor en costuras y bordes",
+      "Secado ventilado",
+    ],
+    noIncluye: [
+      "Desmontaje de la estructura o del panel",
+      "Retapizado o cambio de tela",
+      "Reparación de costuras abiertas",
+    ],
+    proceso: [
+      "Diagnóstico del tejido",
+      "Aspirado y pre-spray",
+      "Extracción y vapor",
+      "Secado",
+    ],
+    precioVaria:
+      "el ancho y alto de la cabecera, el tipo de tela y su estado.",
+    faq: [
+      {
+        pregunta: "¿Hay que desmontar la cabecera?",
+        respuesta:
+          "No. Se limpia instalada, protegiendo la pared y el colchón.",
+      },
+      {
+        pregunta: "¿Se puede limpiar junto con el colchón?",
+        respuesta:
+          "Sí. Coordinamos ambos servicios en la misma visita para aprovechar el secado.",
+      },
+    ],
+  },
+  {
+    slug: "box-tarima-y-bases-de-cama",
+    nombre: "Box tarima / Bases de cama",
+    metodo: "Aspirado profundo + vapor",
+    imagenAlt: "Base de cama box tarima limpia",
+    bajada:
+      "Limpieza profunda de laterales y bordes para retirar polvo, pelusas y ácaros acumulados en la base.",
+    senales: [
+      "La base acumula pelusa o polvo en los laterales",
+      "Hay olor a humedad debajo del colchón",
+      "El colchón se cambió pero la base sigue igual",
+    ],
+    incluye: [
+      "Aspirado de laterales y bordes",
+      "Pre-spray en la tela de la base",
+      "Vapor a alta temperatura",
+      "Secado ventilado",
+    ],
+    noIncluye: [
+      "Limpieza del colchón (se cotiza aparte)",
+      "Desarmado de la base o retiro del colchón",
+      "Reparación de estructura o tapizado",
+    ],
+    proceso: [
+      "Retiro del colchón con cuidado",
+      "Aspirado profundo de la base",
+      "Pre-spray y vapor",
+      "Secado y reposición",
+    ],
+    precioVaria:
+      "el tamaño de la base (1 o 2 plazas), el número de lados y su estado.",
+    faq: [
+      {
+        pregunta: "¿Tengo que sacar el colchón?",
+        respuesta:
+          "Sí, lo retiramos entre el equipo para limpiar la base y lo reponemos al terminar.",
+      },
+      {
+        pregunta: "¿Sirve para somier o base de madera?",
+        respuesta:
+          "Se evalúa el material. La limpieza profunda aplica a la parte tapizada; la madera se limpia en seco.",
+      },
+    ],
+  },
+  {
     slug: "desinfeccion-de-colchones",
     nombre: "Colchones",
     metodo: "Vapor anti ácaros",
     imagenAlt: "Colchón higienizado",
     bajada:
-      "Trata el interior del colchón, donde viven los ácaros, no solo la superficie que ves.",
+      "Succión y desinfección profunda para reducir ácaros, polvo, residuos dérmicos, moho y bacterias.",
     senales: [
       "Te despiertas con congestión o estornudos",
       "El colchón tiene manchas o humedad",
@@ -115,7 +248,7 @@ export const serviciosDestacados: ServicioResumen[] = [
     metodo: "Extracción profunda",
     imagenAlt: "Alfombra limpia",
     bajada:
-      "Devuelve el color y la suavidad a alfombras que acumulan polvo dentro de la fibra.",
+      "Limpieza mecánica profunda, extracción de suciedad incrustada, neutralización de olores y recuperación de fibras.",
     senales: [
       "La alfombra se ve opaca o con zonas más oscuras",
       "Desprende polvo al caminar",
@@ -154,134 +287,134 @@ export const serviciosDestacados: ServicioResumen[] = [
     ],
   },
   {
-    slug: "cortinas-y-persianas",
-    nombre: "Cortinas",
-    metodo: "Lavado al seco / al agua",
-    imagenAlt: "Cortinas limpias",
+    slug: "lavado-de-roller",
+    nombre: "Roller",
+    metodo: "Lavado controlado",
+    imagenAlt: "Persiana roller limpia",
     bajada:
-      "Limpia cortinas y persianas sin desmontar la instalación completa.",
+      "Lavado controlado y limpieza profunda, incluyendo manchas y moho, cuidando el mecanismo y el tejido.",
     senales: [
-      "La cortina acumula polvo y huele a ambiente cerrado",
-      "Hay manchas de humedad en los pliegues",
-      "Quieres renovar el ambiente sin cambiar la decoración",
+      "El roller tiene manchas o puntos de moho",
+      "Se ve opaco por polvo acumulado",
+      "El ambiente huele a humedad cerca de la ventana",
     ],
     incluye: [
       "Diagnóstico del tejido",
-      "Lavado según material (agua o seco)",
-      "Secado y planchado básico",
-      "Reposición en el riel",
+      "Protección del mecanismo",
+      "Lavado controlado de la tela",
+      "Secado extendido",
     ],
     noIncluye: [
-      "Lavado de tejidos delicados sin prueba previa",
-      "Reparación de rieles o mecanismos",
+      "Reparación del mecanismo o del resorte",
+      "Cambio de tela o instalación nueva",
       "Persianas de madera o de exterior",
     ],
     proceso: [
-      "Diagnóstico del tejido",
-      "Desmontaje y lavado",
-      "Secado y planchado",
-      "Reposición",
+      "Diagnóstico del tejido y del mecanismo",
+      "Protección del mecanismo",
+      "Lavado controlado",
+      "Secado extendido",
     ],
     precioVaria:
-      "el número de paños, el ancho y el tipo de tejido.",
+      "el ancho y alto del roller, el tipo de tejido y su estado.",
     faq: [
       {
-        pregunta: "¿Tengo que desmontar las cortinas?",
+        pregunta: "¿Hay que desmontar el roller?",
         respuesta:
-          "No. Nuestro equipo se encarga del desmontaje y la reposición en el riel.",
+          "Se evalúa en el lugar. En la mayoría de casos se limpia instalado, protegiendo el mecanismo.",
       },
       {
-        pregunta: "¿Lavan cortinas blackout?",
+        pregunta: "¿Se puede quitar el moho?",
         respuesta:
-          "Se evalúan primero. Algunos tejidos blackout no admiten lavado al agua y se tratan en seco.",
+          "Se trata la zona con lavado controlado. Si el moho penetró la fibra, puede quedar una marca permanente.",
       },
     ],
   },
   {
-    slug: "mobiliario-de-oficina",
-    nombre: "Sillas de oficina",
-    metodo: "Extracción + desinfección",
-    imagenAlt: "Silla de oficina tapizada",
+    slug: "limpieza-interior-automotriz",
+    nombre: "Interior automotriz",
+    metodo: "Limpieza profunda + neutralización",
+    imagenAlt: "Interior de auto limpio",
     bajada:
-      "Sillas limpias y desinfectadas para un espacio de trabajo que se ve cuidado.",
+      "Asientos de tela o cuero, puertas, moquetas, maletero y techo: limpieza profunda y neutralización de olores.",
     senales: [
-      "Las sillas tienen manchas en el asiento o apoyabrazos",
-      "Hay olor a sudor o humedad",
-      "Rotación de personal y necesidad de higienizar",
+      "Los asientos tienen manchas o olor impregnado",
+      "Hay polvo y pelusa en moquetas y maletero",
+      "Vas a vender o entregar el vehículo",
     ],
     incluye: [
-      "Diagnóstico del tapiz",
-      "Pre-spray y extracción",
-      "Desinfección de superficies de contacto",
-      "Trabajo fuera del horario de atención",
+      "Aspirado de asientos, moquetas y maletero",
+      "Limpieza de puertas y paneles",
+      "Tratamiento de techo",
+      "Neutralización de olores",
     ],
     noIncluye: [
-      "Reparación de mecanismos o ruedas",
-      "Retapizado",
-      "Limpieza de suelos o paredes",
+      "Lavado exterior o pulido de carrocería",
+      "Desmontaje de asientos o tablero",
+      "Reparación de tapizado o cuero",
     ],
     proceso: [
-      "Diagnóstico y prueba",
-      "Pre-spray",
-      "Extracción y desinfección",
-      "Secado",
+      "Aspirado general",
+      "Pre-spray por material",
+      "Extracción y limpieza de paneles",
+      "Neutralización de olores y secado",
     ],
     precioVaria:
-      "el número de sillas, el tipo de tapiz y si el trabajo es dentro o fuera de horario.",
+      "el tamaño del vehículo, el tipo de tapizado y su estado.",
     faq: [
       {
-        pregunta: "¿Pueden trabajar fuera del horario de oficina?",
+        pregunta: "¿Lavan el exterior del auto?",
         respuesta:
-          "Sí. Coordinamos el ingreso para no interrumpir la operación.",
+          "No. Este servicio cubre solo el interior: asientos, puertas, moquetas, maletero y techo.",
       },
       {
-        pregunta: "¿Emiten factura?",
+        pregunta: "¿Dónde se realiza?",
         respuesta:
-          "Sí, trabajamos con comprobante. Indícanos los datos de la empresa al cotizar.",
+          "En el lugar que indiques, siempre que haya espacio y ventilación para el secado.",
       },
     ],
   },
   {
-    slug: "limpieza-integral-de-inmuebles",
-    nombre: "Inmuebles",
-    metodo: "Limpieza profunda integral",
-    imagenAlt: "Interior de inmueble limpio",
+    slug: "linea-infantil",
+    nombre: "Línea infantil",
+    metodo: "Limpieza y desinfección",
+    imagenAlt: "Coche de bebé limpio",
     bajada:
-      "Limpieza profunda para casas, oficinas y locales antes de mudarse o después de una obra.",
+      "Limpieza y desinfección de coches de bebé, sillas de retención infantil (SRI) y corral de tela.",
     senales: [
-      "Vas a entregar o recibir un inmueble",
-      "Terminó una obra y hay polvo fino en todo",
-      "El espacio estuvo cerrado mucho tiempo",
+      "El coche o la SRI acumulan migas y manchas",
+      "Hay olor a humedad o a comida",
+      "El artículo se heredó o se compró de segundo uso",
     ],
     incluye: [
-      "Limpieza de superficies y áreas comunes",
-      "Aspirado y lavado de textiles",
+      "Aspirado de superficies y ranuras",
+      "Limpieza de tela con producto de pH neutro",
       "Desinfección de puntos de contacto",
-      "Coordinación por ambientes",
+      "Secado completo antes de entregar",
     ],
     noIncluye: [
-      "Retiro de escombros o mudanza",
-      "Limpieza de fachadas o exteriores",
-      "Trabajos en altura sin andamio",
+      "Reparación o reemplazo de piezas",
+      "Desinfección de componentes electrónicos",
+      "Lavado de cunas o muebles de madera",
     ],
     proceso: [
-      "Levantamiento del espacio",
-      "Limpieza por ambientes",
-      "Desinfección",
-      "Revisión final",
+      "Diagnóstico del artículo y sus materiales",
+      "Aspirado profundo",
+      "Limpieza y desinfección",
+      "Secado completo",
     ],
     precioVaria:
-      "los metros cuadrados, el número de ambientes y el estado del inmueble.",
+      "el tipo de artículo (coche, SRI o corral), su tamaño y estado.",
     faq: [
       {
-        pregunta: "¿Hacen limpieza después de una obra?",
+        pregunta: "¿Usan productos seguros para bebés?",
         respuesta:
-          "Sí, incluimos retiro de polvo fino y limpieza de superficies. Los escombros y materiales de construcción se retiran aparte.",
+          "Usamos insumos biodegradables de pH neutro y sin fosfatos. Aun así, recomendamos ventilar y dejar secar por completo antes de usarlo.",
       },
       {
-        pregunta: "¿Trabajan con condominios?",
+        pregunta: "¿Desarman el coche para lavarlo?",
         respuesta:
-          "Sí. Coordinamos con la administración el acceso, los horarios y la facturación.",
+          "Se retiran las partes desmontables según el modelo. No forzamos piezas ni desarmamos mecanismos.",
       },
     ],
   },
