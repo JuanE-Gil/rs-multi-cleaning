@@ -5,9 +5,10 @@ interface Props {
   subtitle?: string;
   align?: "left" | "center";
   tone?: "dark" | "light";
+  as?: "h1" | "h2";
 }
 
-const { eyebrow, title, subtitle, align = "left", tone = "dark" } = Astro.props;
+const { eyebrow, title, subtitle, align = "left", tone = "dark", as: Heading = "h2" } = Astro.props as Props;
 const alignClass = align === "center" ? "text-center mx-auto" : "text-left";
 
 const styles = {
@@ -31,9 +32,9 @@ const s = styles[tone];
       {eyebrow}
     </p>
   )}
-  <h2 class:list={['font-display font-extrabold leading-[1.15] tracking-[-0.01em] text-[clamp(1.75rem,3.5vw,2.5rem)]', s.title]}>
+  <Heading class:list={['font-display font-extrabold leading-[1.15] tracking-[-0.01em] text-[clamp(1.75rem,3.5vw,2.5rem)]', s.title]}>
     {title}
-  </h2>
+  </Heading>
   {subtitle && (
     <p class:list={['mt-3 text-lg leading-relaxed', s.subtitle]}>{subtitle}</p>
   )}

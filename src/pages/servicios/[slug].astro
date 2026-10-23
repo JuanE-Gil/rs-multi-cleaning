@@ -45,9 +45,9 @@ const faqJsonLd = JSON.stringify({
     <Container class="py-12 md:py-16">
       <nav aria-label="Ruta de navegación" class="text-sm text-slate-ink">
         <ol class="flex flex-wrap items-center gap-2">
-          <li><a href="/" class="hover:text-navy">Inicio</a></li>
+          <li><a href="/" class="inline-flex min-h-6 items-center hover:text-navy">Inicio</a></li>
           <li aria-hidden="true">/</li>
-          <li><a href="/servicios" class="hover:text-navy">Servicios</a></li>
+          <li><a href="/servicios" class="inline-flex min-h-6 items-center hover:text-navy">Servicios</a></li>
           <li aria-hidden="true">/</li>
           <li aria-current="page" class="font-semibold text-navy">{servicio.nombre}</li>
         </ol>
@@ -147,7 +147,7 @@ const faqJsonLd = JSON.stringify({
     <ol class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
       {servicio.proceso.map((paso, i) => (
         <li class="rounded-lg border border-hairline bg-white p-5 shadow-sm">
-          <span class="flex h-9 w-9 items-center justify-center rounded-full bg-teal font-display text-sm font-bold text-white">
+          <span class="flex h-9 w-9 items-center justify-center rounded-full bg-teal-900 font-display text-sm font-bold text-white">
             {i + 1}
           </span>
           <p class="mt-3 text-sm font-semibold text-navy">{paso}</p>
@@ -224,7 +224,7 @@ const faqJsonLd = JSON.stringify({
           <p class="mt-1 text-sm text-slate-ink">{s.metodo}</p>
           <a
             href={`/servicios/${s.slug}`}
-            class="mt-4 inline-block text-sm font-bold text-teal-ink hover:text-navy"
+            class="mt-4 inline-flex min-h-6 items-center text-sm font-bold text-teal-ink hover:text-navy"
           >
             Ver detalle →
           </a>
