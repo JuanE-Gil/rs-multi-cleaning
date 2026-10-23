@@ -29,6 +29,7 @@ Marketing site for R&S Multi Cleaning (Lima, Peru). Astro 7 + Preact + Tailwind 
 - Fonts (Montserrat, Open Sans) are fetched from Google Fonts at build/dev time — builds need network access. CSS vars `--font-display` / `--font-body` come from `astro.config.mjs` fonts, referenced in `global.css`.
 - Accesibilidad: el verde de WhatsApp debe quedarse en `--color-wa` (`#0E7A3C`, 5.43:1 con blanco); `#1FA855` no pasa AA. Texto blanco pequeño sobre teal usa `teal-900`. `SectionHeading` renderiza `h2` por defecto: pasa `as="h1"` cuando sea el título principal de la página.
 - Campos de formulario: usa `border-field` (`#6F889C`, 3.7:1 sobre blanco), no `border-hairline`. Movimiento: no uses `transition-all`; enumera las propiedades. Los `img` llevan outline neutro global y los títulos usan `text-wrap: balance`.
+- Secciones de la home: full-bleed con fondo alterno (`bg-mist` / blanco / `bg-navy`) y `Container` interno. No añadas `rounded`, borde ni sombra al `<section>`: eso recrea el efecto de tarjetas apiladas. Las tarjetas internas sí usan `Card`.
 - `src/data/empresa.ts`: horario y dirección siguen con TODO; teléfono, WhatsApp, correo y RUC ya son datos reales.
 
 ## Project docs

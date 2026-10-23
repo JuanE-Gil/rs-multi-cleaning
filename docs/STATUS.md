@@ -26,7 +26,7 @@ Corregido el 2026-10-22 en la rama `a11y/wcag-2.2-aa`; integrado a `main` con me
 - Contraste: el verde de WhatsApp pasa de `#1FA855` (3.09:1 con texto blanco) a `--color-wa: #0E7A3C` (5.43:1); `--color-wa-strong` para hover. Los números de proceso usan `bg-teal-900` (9.39:1) en vez de `bg-teal` (4.43:1). El hover del botón primario usa `--color-green-strong` (6.63:1) en vez de `green-ink/90` (4.17:1).
 - Foco visible de dos tonos (`:focus-visible` con contorno teal-ink y halo blanco) para fondos claros y oscuros; el comparador antes/después marca el contenedor con `focus-within`.
 - Estructura: `lang="es-PE"`, un solo `h1` por página, `SectionHeading` acepta `as="h1"`, columnas del footer pasan de `h3` a `h2`.
-- Objetivos táctiles: enlaces de navegación, footer, breadcrumbs y CTAs de tarjetas con `min-h-6`; checkbox de consentimiento de 24×24 con `id`/`for`.
+- Objetivos táctiles: navegación principal a 44 px (`min-h-11`); footer, breadcrumbs y CTAs de tarjetas a 24 px (`min-h-6`) por densidad; checkbox de consentimiento de 24×24 con `id`/`for`.
 - Región de testimonios desplazable con teclado (`tabindex="0"`, `role="region"`, `aria-label`); iconos decorativos con `aria-hidden`.
 
 Pendiente de verificar con lector de pantalla y navegador real. No hay CI ni Chrome en el entorno, así que no se ejecutó axe/Lighthouse; la comprobación fue build + `astro check` + revisión de contraste calculada. Las tres páginas vacías del blocker 1 siguen sin estructura accesible porque no tienen contenido.
@@ -41,8 +41,9 @@ Rama `polish/interface-details`, creada desde `main` después de integrar la acc
 - Botones con press `active:scale-[0.98]`, transiciones de propiedades explícitas (sin `transition-all`) y override para `prefers-reduced-motion`.
 - Enlaces "Ver detalle" con nombre accesible único; testimonios como `figure`/`blockquote`/`figcaption`; asteriscos de campos obligatorios ocultos a lectores de pantalla.
 - Se retiró el scale de hover del FAB y del comparador: el movimiento no aportaba y añadía ruido.
+- Shell de la home: se retiró `rounded-lg`, borde y sombra de las 11 secciones; ahora son bandas full-bleed con `Container` interno y fondos alternos mist/blanco/navy. Se corrigió la colisión Testimonios–Cobertura y FAQ pasó a blanco con borde de control a 3.7:1. `#servicios` recibe `scroll-mt-24` para el header sticky.
 
-Límites: los enlaces del footer conservan 24 px de alto por densidad (la recomendación de 40–44 px no cabe sin romper el layout). Sin navegador real ni axe; verificación con build, `astro check` y revisión estática.
+Límites: los enlaces del footer conservan 24 px de alto por densidad (la recomendación de 40–44 px no cabe sin romper el layout). Sin navegador real ni axe; verificación con build, `astro check` y revisión estática. Quedan diferidos el acento de `SectionHeading`, la línea de tiempo del proceso y la numeración de tarjetas de servicio: primero hay que validar el shell en navegador.
 
 ## Decisiones pendientes
 
