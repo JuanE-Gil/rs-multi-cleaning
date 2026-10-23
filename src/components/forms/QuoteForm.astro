@@ -20,14 +20,14 @@ const FORM_ENDPOINT = import.meta.env.PUBLIC_FORM_ENDPOINT ?? "#";
     <div>
       <label for="nombre" class="text-xs font-bold text-slate-ink">Nombre y apellido *</label>
       <input id="nombre" name="nombre" type="text" required autocomplete="name"
-        class="mt-1 w-full rounded-md border border-hairline px-3 py-2.5 text-sm focus-visible:outline-teal" />
+        class="mt-1 w-full rounded-md border border-hairline px-3 py-2.5 text-sm" />
     </div>
 
     <div>
       <label for="whatsapp" class="text-xs font-bold text-slate-ink">WhatsApp *</label>
       <input id="whatsapp" name="whatsapp" type="tel" required pattern="9[0-9]{8}"
         autocomplete="tel" placeholder="9XXXXXXXX" aria-describedby="whatsapp-hint"
-        class="mt-1 w-full rounded-md border border-hairline px-3 py-2.5 text-sm focus-visible:outline-teal" />
+        class="mt-1 w-full rounded-md border border-hairline px-3 py-2.5 text-sm" />
       <p id="whatsapp-hint" class="mt-1 text-xs text-slate-ink">9 dígitos, sin espacios.</p>
     </div>
 
@@ -35,20 +35,20 @@ const FORM_ENDPOINT = import.meta.env.PUBLIC_FORM_ENDPOINT ?? "#";
       <div>
         <label for="email" class="text-xs font-bold text-slate-ink">Correo electrónico *</label>
         <input id="email" name="email" type="email" required autocomplete="email"
-          class="mt-1 w-full rounded-md border border-hairline px-3 py-2.5 text-sm focus-visible:outline-teal" />
+          class="mt-1 w-full rounded-md border border-hairline px-3 py-2.5 text-sm" />
       </div>
     )}
 
     <div>
       <label for="distrito" class="text-xs font-bold text-slate-ink">Distrito *</label>
       <input id="distrito" name="distrito" type="text" required autocomplete="address-level2"
-        class="mt-1 w-full rounded-md border border-hairline px-3 py-2.5 text-sm focus-visible:outline-teal" />
+        class="mt-1 w-full rounded-md border border-hairline px-3 py-2.5 text-sm" />
     </div>
 
     <div>
       <label for="servicio" class="text-xs font-bold text-slate-ink">Servicio requerido *</label>
       <select id="servicio" name="servicio" required
-        class="mt-1 w-full rounded-md border border-hairline bg-white px-3 py-2.5 text-sm focus-visible:outline-teal">
+        class="mt-1 w-full rounded-md border border-hairline bg-white px-3 py-2.5 text-sm">
         <option value="">Selecciona un servicio</option>
         {serviciosDestacados.map((s) => (
           <option value={s.slug}>{s.nombre}</option>
@@ -56,10 +56,12 @@ const FORM_ENDPOINT = import.meta.env.PUBLIC_FORM_ENDPOINT ?? "#";
       </select>
     </div>
 
-    <label class="flex items-start gap-2 text-xs text-slate-ink">
-      <input type="checkbox" name="consentimiento" required class="mt-0.5" />
-      Acepto la<a href="/legal/politica-de-privacidad" class="font-bold text-teal-ink underline">política de privacidad</a>
-    </label>
+    <div class="flex items-start gap-2 text-xs text-slate-ink">
+      <input id="consentimiento" name="consentimiento" type="checkbox" required class="mt-0.5 size-6 shrink-0" />
+      <label for="consentimiento">
+        Acepto la <a href="/legal/politica-de-privacidad" class="font-bold text-teal-ink underline">política de privacidad</a>
+      </label>
+    </div>
 
     <Button type="submit" variant="primary" size="lg" class="w-full justify-center">
       Enviar y recibir cotización

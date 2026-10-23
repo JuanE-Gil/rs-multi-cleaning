@@ -30,7 +30,7 @@ const { currentPage } = Astro.props;
           href={link.href}
           aria-current={link.key === currentPage ? 'page' : undefined}
           class:list={[
-            'font-body text-sm font-semibold transition-colors',
+            'inline-flex min-h-6 items-center font-body text-sm font-semibold transition-colors',
             link.key === currentPage ? 'text-green' : 'text-mist hover:text-white',
           ]}
         >
@@ -42,7 +42,7 @@ const { currentPage } = Astro.props;
     <div class="flex items-center gap-4">
       <a
         href={`tel:${empresa.telefonoFijo.replace(/[^\d+]/g, '')}`}
-        class="hidden text-sm font-semibold text-mist hover:text-white lg:inline"
+        class="hidden min-h-6 items-center text-sm font-semibold text-mist hover:text-white lg:inline-flex"
       >
         ☎ {empresa.telefonoFijo}
       </a>

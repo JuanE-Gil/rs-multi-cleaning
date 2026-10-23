@@ -27,7 +27,8 @@ Marketing site for R&S Multi Cleaning (Lima, Peru). Astro 7 + Preact + Tailwind 
 - Sitemap filter excludes `/gracias` and `/legal/`; `trailingSlash: 'never'` — keep links consistent with no trailing slash.
 - Icons: `astro-icon` bundles only the lucide icons whitelisted in `astro.config.mjs` → `icon({ include: { lucide: [...] } })`. New icons must be added there or they 404.
 - Fonts (Montserrat, Open Sans) are fetched from Google Fonts at build/dev time — builds need network access. CSS vars `--font-display` / `--font-body` come from `astro.config.mjs` fonts, referenced in `global.css`.
-- `src/data/empresa.ts` still has placeholder TODOs (phone, RUC, email) — confirm with the owner before treating business data as final.
+- Accesibilidad: el verde de WhatsApp debe quedarse en `--color-wa` (`#0E7A3C`, 5.43:1 con blanco); `#1FA855` no pasa AA. Texto blanco pequeño sobre teal usa `teal-900`. `SectionHeading` renderiza `h2` por defecto: pasa `as="h1"` cuando sea el título principal de la página.
+- `src/data/empresa.ts`: horario y dirección siguen con TODO; teléfono, WhatsApp, correo y RUC ya son datos reales.
 
 ## Project docs
 

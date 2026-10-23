@@ -3,7 +3,7 @@
 Rol: **Status**. Salud actual, blockers, umbrales y delete-zone.
 Actualizar solo cuando cambie un blocker o se retire algo. La estructura vive en el código, no aquí.
 
-**Build: PASS** (2026-10-22). `npm run build` genera 13 páginas sin errores.
+**Build: PASS** (2026-10-22). `npm run build` genera 16 páginas sin errores; `npx astro check` no reporta errores.
 
 ## Blockers
 
@@ -18,6 +18,18 @@ Actualizar solo cuando cambie un blocker o se retire algo. La estructura vive en
 | 7 | Solo el servicio de tapicería en tela tiene fotos antes/después. Los otros ocho muestran un placeholder honesto hasta que lleguen los casos de fase 0. | `src/data/servicios.ts` (`casoId`), `src/data/casos.ts` |
 | 8 | `servicios/index.astro` sigue siendo una maqueta de un solo título; el hub del informe (filtro por segmento y tabla método/material) no existe. | `src/pages/servicios/index.astro` |
 | 9 | `/contacto` no tiene mapa: no hay dirección comercial confirmada y se omitió el iframe de Maps por peso. | `src/pages/contacto.astro` |
+
+## Accesibilidad (WCAG 2.2 AA)
+
+Corregido el 2026-10-22 en la rama `a11y/wcag-2.2-aa`:
+
+- Contraste: el verde de WhatsApp pasa de `#1FA855` (3.09:1 con texto blanco) a `--color-wa: #0E7A3C` (5.43:1); `--color-wa-strong` para hover. Los números de proceso usan `bg-teal-900` (9.39:1) en vez de `bg-teal` (4.43:1). El hover del botón primario usa `--color-green-strong` (6.63:1) en vez de `green-ink/90` (4.17:1).
+- Foco visible de dos tonos (`:focus-visible` con contorno teal-ink y halo blanco) para fondos claros y oscuros; el comparador antes/después marca el contenedor con `focus-within`.
+- Estructura: `lang="es-PE"`, un solo `h1` por página, `SectionHeading` acepta `as="h1"`, columnas del footer pasan de `h3` a `h2`.
+- Objetivos táctiles: enlaces de navegación, footer, breadcrumbs y CTAs de tarjetas con `min-h-6`; checkbox de consentimiento de 24×24 con `id`/`for`.
+- Región de testimonios desplazable con teclado (`tabindex="0"`, `role="region"`, `aria-label`); iconos decorativos con `aria-hidden`.
+
+Pendiente de verificar con lector de pantalla y navegador real. No hay CI ni Chrome en el entorno, así que no se ejecutó axe/Lighthouse; la comprobación fue build + `astro check` + revisión de contraste calculada. Las tres páginas vacías del blocker 1 siguen sin estructura accesible porque no tienen contenido.
 
 ## Decisiones pendientes
 

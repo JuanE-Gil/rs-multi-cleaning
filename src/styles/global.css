@@ -16,6 +16,10 @@
   --color-green-100: #DCFCE7;
   --color-green:     #22C55E;
   --color-green-ink: #15803D;
+  --color-green-strong: #0E6B33;
+
+  --color-wa:        #0E7A3C;
+  --color-wa-strong: #0A5F2F;
 
   --color-ink:       #0B1F3A;
   --color-slate-ink: #42627A;
@@ -37,5 +41,10 @@
   }
   body { font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.7; color: var(--color-ink); }
   h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.1; letter-spacing: -0.015em; }
-  :focus-visible { outline: 3px solid var(--color-teal); outline-offset: 2px; }
+  /* Dos tonos: el contorno teal-ink cubre fondos claros y el halo blanco, los oscuros. */
+  :focus-visible {
+    outline: 3px solid var(--color-teal-ink);
+    outline-offset: 3px;
+    box-shadow: 0 0 0 2px #fff;
+  }
 }

@@ -2,7 +2,7 @@
 
 Sitio de captación de cotizaciones para R&S Multi Cleaning S.A.C. (Lima). Vende un servicio concreto: lavado y desinfección de sofás, colchones, alfombras y cortinas a domicilio. Construido con Astro 7 y Tailwind CSS 4; sin backend ni base de datos.
 
-> **El build pasa.** `npm run build` genera 13 páginas, incluidas las seis de detalle por servicio. Quedan páginas de cierre sin contenido y datos de negocio por confirmar: detalle en [`docs/STATUS.md`](docs/STATUS.md).
+> **El build pasa.** `npm run build` genera 16 páginas, incluidas las nueve de detalle por servicio. Quedan páginas de cierre sin contenido y datos de negocio por confirmar: detalle en [`docs/STATUS.md`](docs/STATUS.md).
 
 ## Fases del proyecto
 
@@ -27,6 +27,7 @@ Si los insumos de la fase 0 no llegan antes del checkpoint, se publica un one-pa
 | Cambiar textos, precios o servicios | `src/data/*.ts` | `npx astro check` |
 | Editar una sección de la home | `src/components/sections/` y `src/pages/index.astro` | `npm run build` |
 | Cambiar colores o tipografía | `src/styles/global.css` (`@theme`) | `npm run build` |
+| Revisar contraste, foco o tamaños táctiles | `src/styles/global.css` (`@theme`, `:focus-visible`) | Navegar con teclado y `npm run build` |
 | Añadir una página | `src/pages/` (la ruta es el nombre del archivo) | `npm run build` |
 | Ajustar SEO o meta tags | `src/components/seo/BaseHead.astro` | Inspeccionar el HTML generado |
 | Cambiar enlaces de WhatsApp | `src/utils/wa.ts` (`waLink`) | Abrir un CTA en el navegador |
@@ -42,7 +43,7 @@ Requiere Node >= 22.12.0 y conexión a internet (las fuentes se descargan de Goo
 ```sh
 npm install
 npm run dev       # servidor local; en segundo plano: npx astro dev --background
-npm run build     # build de producción (hoy falla)
+npm run build     # build de producción
 npm run preview   # previsualizar el build
 npx astro check   # typecheck
 ```
