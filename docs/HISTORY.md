@@ -16,3 +16,4 @@ Formato: `[YYYY-MM-DD] tipo | qué cambió; evidencia`.
 - `[2026-10-19] decisión` | WhatsApp como canal principal de conversión, centralizado en `src/utils/wa.ts` (`waLink`).
 - `[2026-10-19] gobernanza` | Rama `master` renombrada a `main`; Conventional Commits adoptado; `.opencode/` y `graphify-out/` ignorados por ser artefactos locales.
 - `[2026-10-22] gobernanza` | Se separan los roles de documentación: este archivo (History), `docs/STATUS.md` (Status) y `AGENTS.md` (Constitution).
+- `[2026-10-22] decisión` | Checkpoint de fase 0: si los insumos del cliente (fotos reales, precios, RUC, teléfono, testimonios) no están antes del **2026-11-05**, se publica un one-pager de 5 secciones con CTA de WhatsApp en lugar del sitio completo de 14 secciones. Evidencia: revisión dev-team/council del 2026-10-22.

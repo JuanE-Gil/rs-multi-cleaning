@@ -17,13 +17,23 @@ Actualizar solo cuando cambie un blocker o se retire algo. La estructura vive en
 | 6 | Enlaces a `/legal/politica-de-privacidad` y `/legal/terminos-y-condiciones` sin página que los resuelva. | `Footer.astro`, `FinalCta.astro` |
 | 7 | `PUBLIC_FORM_ENDPOINT` no definido: el formulario de cotización postea a `#`. | `FinalCta.astro` línea 9 |
 
+## Decisiones pendientes
+
+| Decisión | Dueño | Fecha límite | Estado |
+|---|---|---|---|
+| Insumos de fase 0: fotos reales, precios, RUC, teléfono y testimonios | Cliente | 2026-11-05 | Pendiente; al vencer se activa el fallback |
+| Fallback acordado si vence el checkpoint | — | 2026-11-05 | One-pager de 5 secciones con CTA de WhatsApp |
+| Proveedor del formulario (Web3Forms / Formspree / otro) | Por asignar | — | Pendiente |
+| Dominio y `site` en `astro.config.mjs` | Por asignar | — | Pendiente |
+| Analítica y eventos de WhatsApp | Por asignar | — | Pendiente |
+
 ## Delete-zone
 
 | Path / concepto | Por qué se retiró | Reemplazo | Condición para recrear |
 |---|---|---|---|
 | `src/content/` | Colecciones vacías; el contenido vive en `src/data/`. | `src/data/*.ts` | Solo con una decisión nueva de adoptar content collections |
 | Contenido starter de `README.md` | Boilerplate de Astro; no describe el proyecto. | Pendiente: mapa del proyecto | Al reescribir el README |
-| `CLAUDE.md` | Deriva de `AGENTS.md` y duplica reglas. | `AGENTS.md` | Al decidir si queda como stub o se elimina |
+| `CLAUDE.md` | Duplicaba `AGENTS.md` mediante hardlink y derivaba. | `AGENTS.md` | Solo si un harness exige `CLAUDE.md` |
 
 ## Umbrales y restricciones
 
