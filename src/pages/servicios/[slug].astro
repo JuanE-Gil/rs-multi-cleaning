@@ -45,9 +45,9 @@ const faqJsonLd = JSON.stringify({
     <Container class="py-12 md:py-16">
       <nav aria-label="Ruta de navegación" class="text-sm text-slate-ink">
         <ol class="flex flex-wrap items-center gap-2">
-          <li><a href="/" class="inline-flex min-h-6 items-center hover:text-navy">Inicio</a></li>
+          <li><a href="/" class="inline-flex min-h-6 items-center transition-colors hover:text-navy">Inicio</a></li>
           <li aria-hidden="true">/</li>
-          <li><a href="/servicios" class="inline-flex min-h-6 items-center hover:text-navy">Servicios</a></li>
+          <li><a href="/servicios" class="inline-flex min-h-6 items-center transition-colors hover:text-navy">Servicios</a></li>
           <li aria-hidden="true">/</li>
           <li aria-current="page" class="font-semibold text-navy">{servicio.nombre}</li>
         </ol>
@@ -224,7 +224,8 @@ const faqJsonLd = JSON.stringify({
           <p class="mt-1 text-sm text-slate-ink">{s.metodo}</p>
           <a
             href={`/servicios/${s.slug}`}
-            class="mt-4 inline-flex min-h-6 items-center text-sm font-bold text-teal-ink hover:text-navy"
+            aria-label={`Ver detalle de ${s.nombre}`}
+            class="mt-4 inline-flex min-h-6 items-center text-sm font-bold text-teal-ink transition-colors hover:text-navy"
           >
             Ver detalle →
           </a>

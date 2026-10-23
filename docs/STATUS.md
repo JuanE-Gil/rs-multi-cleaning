@@ -21,7 +21,7 @@ Actualizar solo cuando cambie un blocker o se retire algo. La estructura vive en
 
 ## Accesibilidad (WCAG 2.2 AA)
 
-Corregido el 2026-10-22 en la rama `a11y/wcag-2.2-aa`:
+Corregido el 2026-10-22 en la rama `a11y/wcag-2.2-aa`; integrado a `main` con merge `--no-ff` y la rama se conserva para futuras auditorías WCAG.
 
 - Contraste: el verde de WhatsApp pasa de `#1FA855` (3.09:1 con texto blanco) a `--color-wa: #0E7A3C` (5.43:1); `--color-wa-strong` para hover. Los números de proceso usan `bg-teal-900` (9.39:1) en vez de `bg-teal` (4.43:1). El hover del botón primario usa `--color-green-strong` (6.63:1) en vez de `green-ink/90` (4.17:1).
 - Foco visible de dos tonos (`:focus-visible` con contorno teal-ink y halo blanco) para fondos claros y oscuros; el comparador antes/después marca el contenedor con `focus-within`.
@@ -30,6 +30,19 @@ Corregido el 2026-10-22 en la rama `a11y/wcag-2.2-aa`:
 - Región de testimonios desplazable con teclado (`tabindex="0"`, `role="region"`, `aria-label`); iconos decorativos con `aria-hidden`.
 
 Pendiente de verificar con lector de pantalla y navegador real. No hay CI ni Chrome en el entorno, así que no se ejecutó axe/Lighthouse; la comprobación fue build + `astro check` + revisión de contraste calculada. Las tres páginas vacías del blocker 1 siguen sin estructura accesible porque no tienen contenido.
+
+## Pulido de interfaz (2026-10-22)
+
+Rama `polish/interface-details`, creada desde `main` después de integrar la accesibilidad:
+
+- Tipografía: `text-wrap: balance` en títulos y `pretty` en párrafos; `antialiased` ya estaba en `BaseLayout`.
+- Imágenes con outline neutro de 1 px desde `global.css` para separar bordes del fondo.
+- Controles de formulario con `border-field` (`#6F889C`, 3.7:1 sobre blanco). Antes usaban `border-hairline` (1.44:1), insuficiente para identificar el campo.
+- Botones con press `active:scale-[0.98]`, transiciones de propiedades explícitas (sin `transition-all`) y override para `prefers-reduced-motion`.
+- Enlaces "Ver detalle" con nombre accesible único; testimonios como `figure`/`blockquote`/`figcaption`; asteriscos de campos obligatorios ocultos a lectores de pantalla.
+- Se retiró el scale de hover del FAB y del comparador: el movimiento no aportaba y añadía ruido.
+
+Límites: los enlaces del footer conservan 24 px de alto por densidad (la recomendación de 40–44 px no cabe sin romper el layout). Sin navegador real ni axe; verificación con build, `astro check` y revisión estática.
 
 ## Decisiones pendientes
 

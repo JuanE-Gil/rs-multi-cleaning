@@ -24,6 +24,7 @@
   --color-ink:       #0B1F3A;
   --color-slate-ink: #42627A;
   --color-hairline:  #CBD9E2;
+  --color-field:     #6F889C;
 
   --font-display: var(--font-display), "Arial Black", sans-serif;
   --font-body:    var(--font-body), "Segoe UI", sans-serif;
@@ -40,7 +41,9 @@
     *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
   }
   body { font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.7; color: var(--color-ink); }
-  h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.1; letter-spacing: -0.015em; }
+  h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.1; letter-spacing: -0.015em; text-wrap: balance; }
+  p { text-wrap: pretty; }
+  img { outline: 1px solid rgb(0 0 0 / 0.1); outline-offset: -1px; }
   /* Dos tonos: el contorno teal-ink cubre fondos claros y el halo blanco, los oscuros. */
   :focus-visible {
     outline: 3px solid var(--color-teal-ink);

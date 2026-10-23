@@ -12,14 +12,18 @@ import { testimonios } from '../../data/testimonios';
       tabindex="0"
       role="region"
       aria-label="Testimonios de clientes"
-      class="mt-10 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-2 sm:grid sm:grid-cols-3 sm:overflow-visible"
+      class="mt-10 flex snap-x snap-mandatory gap-5 overflow-x-auto overscroll-x-contain pb-2 sm:grid sm:grid-cols-3 sm:overflow-visible"
     >
       {testimonios.map((t) => (
-        <div class="min-w-[85%] shrink-0 snap-start rounded-lg border border-hairline bg-white p-5 shadow-sm sm:min-w-0">
-          <p class="text-sm leading-relaxed text-ink">"{t.texto}"</p>
-          <p class="mt-4 text-sm font-bold text-navy">{t.nombre}</p>
-          <p class="text-xs text-slate-ink">{t.distrito} · {t.servicio}</p>
-        </div>
+        <figure class="min-w-[85%] shrink-0 snap-start rounded-lg border border-hairline bg-white p-5 shadow-sm sm:min-w-0">
+          <blockquote class="text-sm leading-relaxed text-ink">
+            <p>"{t.texto}"</p>
+          </blockquote>
+          <figcaption class="mt-4">
+            <span class="block text-sm font-bold text-navy">{t.nombre}</span>
+            <span class="block text-xs text-slate-ink">{t.distrito} · {t.servicio}</span>
+          </figcaption>
+        </figure>
       ))}
     </div>
   </Container>

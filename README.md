@@ -27,7 +27,7 @@ Si los insumos de la fase 0 no llegan antes del checkpoint, se publica un one-pa
 | Cambiar textos, precios o servicios | `src/data/*.ts` | `npx astro check` |
 | Editar una sección de la home | `src/components/sections/` y `src/pages/index.astro` | `npm run build` |
 | Cambiar colores o tipografía | `src/styles/global.css` (`@theme`) | `npm run build` |
-| Revisar contraste, foco o tamaños táctiles | `src/styles/global.css` (`@theme`, `:focus-visible`) | Navegar con teclado y `npm run build` |
+| Cambiar colores, foco o pulido visual | `src/styles/global.css` (`@theme` y base) | `npm run build` |
 | Añadir una página | `src/pages/` (la ruta es el nombre del archivo) | `npm run build` |
 | Ajustar SEO o meta tags | `src/components/seo/BaseHead.astro` | Inspeccionar el HTML generado |
 | Cambiar enlaces de WhatsApp | `src/utils/wa.ts` (`waLink`) | Abrir un CTA en el navegador |
