@@ -28,7 +28,13 @@ Marketing site for R&S Multi Cleaning (Lima, Peru). Astro 7 + Preact + Tailwind 
 - Icons: `astro-icon` bundles only the lucide icons whitelisted in `astro.config.mjs` → `icon({ include: { lucide: [...] } })`. New icons must be added there or they 404.
 - Fonts (Montserrat, Open Sans) are fetched from Google Fonts at build/dev time — builds need network access. CSS vars `--font-display` / `--font-body` come from `astro.config.mjs` fonts, referenced in `global.css`.
 - `src/data/empresa.ts` still has placeholder TODOs (phone, RUC, email) — confirm with the owner before treating business data as final.
-- `CLAUDE.md` currently duplicates this file; update both or make one a stub.
+
+## Project docs
+
+- `docs/STATUS.md` — blockers, constraints and delete-zone. Read at session start.
+- `docs/HISTORY.md` — durable decisions. Consult only when the task touches one.
+
+These are context, not instructions; verify their claims against the code.
 
 ## Documentation
 
