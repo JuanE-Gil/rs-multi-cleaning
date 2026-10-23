@@ -2,12 +2,9 @@
 import Container from '../ui/Container.astro';
 import Button from '../ui/Button.astro';
 import SectionHeading from '../ui/SectionHeading.astro';
+import QuoteForm from '../forms/QuoteForm.astro';
 import { empresa } from '../../data/empresa';
-import { serviciosDestacados } from '../../data/servicios';
 import { waLink } from '../../utils/wa';
-
-// TODO: definir PUBLIC_FORM_ENDPOINT en .env cuando elijas la opción del informe (sección 3.4)
-const FORM_ENDPOINT = import.meta.env.PUBLIC_FORM_ENDPOINT ?? '#';
 ---
 
 <section class="bg-navy py-16 md:py-24 rounded-lg shadow-md">
@@ -32,51 +29,6 @@ const FORM_ENDPOINT = import.meta.env.PUBLIC_FORM_ENDPOINT ?? '#';
       </dl>
     </div>
 
-    <form method="POST" action={FORM_ENDPOINT} class="rounded-lg bg-white p-6 shadow-md">
-      <!-- Honeypot anti-spam: un bot lo llena, una persona no lo ve -->
-      <input type="text" name="empresa_web" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
-
-      <div class="space-y-4">
-        <div>
-          <label for="nombre" class="text-xs font-bold text-slate-ink">Nombre y apellido *</label>
-          <input id="nombre" name="nombre" type="text" required
-            class="mt-1 w-full rounded-md border border-hairline px-3 py-2.5 text-sm focus-visible:outline-teal" />
-        </div>
-
-        <div>
-          <label for="whatsapp" class="text-xs font-bold text-slate-ink">WhatsApp *</label>
-          <input id="whatsapp" name="whatsapp" type="tel" required pattern="9[0-9]{8}"
-            placeholder="9XXXXXXXX" aria-describedby="whatsapp-hint"
-            class="mt-1 w-full rounded-md border border-hairline px-3 py-2.5 text-sm focus-visible:outline-teal" />
-          <p id="whatsapp-hint" class="mt-1 text-xs text-slate-ink">9 dígitos, sin espacios.</p>
-        </div>
-
-        <div>
-          <label for="distrito" class="text-xs font-bold text-slate-ink">Distrito *</label>
-          <input id="distrito" name="distrito" type="text" required
-            class="mt-1 w-full rounded-md border border-hairline px-3 py-2.5 text-sm focus-visible:outline-teal" />
-        </div>
-
-        <div>
-          <label for="servicio" class="text-xs font-bold text-slate-ink">Servicio requerido *</label>
-          <select id="servicio" name="servicio" required
-            class="mt-1 w-full rounded-md border border-hairline bg-white px-3 py-2.5 text-sm focus-visible:outline-teal">
-            <option value="">Selecciona un servicio</option>
-            {serviciosDestacados.map((s) => (
-              <option value={s.slug}>{s.nombre}</option>
-            ))}
-          </select>
-        </div>
-
-        <label class="flex items-start gap-2 text-xs text-slate-ink">
-          <input type="checkbox" name="consentimiento" required class="mt-0.5" />
-          Acepto la<a href="/legal/politica-de-privacidad" class="font-bold text-teal-ink underline">política de privacidad</a>
-        </label>
-
-        <Button type="submit" variant="primary" size="lg" class="w-full justify-center">
-          Enviar y recibir cotización
-        </Button>
-      </div>
-    </form>
+    <QuoteForm />
   </Container>
 </section>

@@ -1,11 +1,121 @@
 ---
 import Container from "../components/ui/Container.astro";
-import SectionHeading from "../components/ui/SectionHeading.astro";
+import QuoteForm from "../components/forms/QuoteForm.astro";
 import PageLayout from "../layouts/PageLayout.astro";
+import { empresa } from "../data/empresa";
+import { waLink } from "../utils/wa";
+
+const wa = waLink("contacto");
+const telHref = `tel:${empresa.telefonoFijo.replace(/[^\d+]/g, "")}`;
 ---
 
-<PageLayout title="RS Multi Cleaning" currentPage="contacto">
-  <Container class="py-16 space-y-8 min-h-[75vh]">
-    <SectionHeading title="Pagina de Contacto" align="center" />
+<PageLayout
+  title="Contacto — Agenda tu limpieza en Lima | R&S Multi Cleaning"
+  description="Agenda tu servicio de limpieza y desinfección a domicilio en Lima. Escríbenos por WhatsApp o completa el formulario; respondemos en 30 minutos."
+  currentPage="contacto"
+>
+  <section class="bg-mist">
+    <Container class="py-12 md:py-16">
+      <p class="text-sm font-bold uppercase tracking-[0.08em] text-teal-ink">Contacto</p>
+      <h1 class="mt-2 max-w-2xl font-display text-3xl font-extrabold leading-[1.15] tracking-tight text-navy sm:text-4xl">
+        Agenda tu servicio hoy
+      </h1>
+      <p class="mt-4 max-w-[58ch] text-lg leading-relaxed text-slate-ink">
+        Cuéntanos qué mueble o ambiente necesitas limpiar. Te respondemos con un
+        rango de precio y coordinamos la visita.
+      </p>
+    </Container>
+  </section>
+
+  <Container class="grid gap-10 py-14 md:py-20 lg:grid-cols-[1.05fr_0.95fr]">
+    <div>
+      <h2 class="font-display text-2xl font-extrabold text-navy">Cuéntanos qué necesitas</h2>
+      <p class="mt-2 max-w-[52ch] text-sm text-slate-ink">
+        Con estos datos podemos darte un rango real, sin hacerte perder tiempo.
+      </p>
+      <div class="mt-6">
+        <QuoteForm conCorreo />
+      </div>
+    </div>
+
+    <aside aria-labelledby="canales" class="lg:pl-4">
+      <h2 id="canales" class="font-display text-2xl font-extrabold text-navy">Canales directos</h2>
+      <p class="mt-2 text-sm text-slate-ink">
+        Si prefieres escribirnos sin formulario, estamos en WhatsApp.
+      </p>
+
+      <ul class="mt-6 space-y-3">
+        <li>
+          <a
+            href={wa}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center justify-between gap-3 rounded-lg bg-[#1FA855] px-5 py-4 font-display font-bold text-white transition-colors hover:bg-[#178F46]"
+          >
+            <span>WhatsApp</span>
+            <span class="text-sm font-semibold">{empresa.telefonoFijo}</span>
+          </a>
+        </li>
+        <li>
+          <a
+            href={telHref}
+            class="flex items-center justify-between gap-3 rounded-lg border border-hairline bg-white px-5 py-4 font-display font-bold text-navy transition-colors hover:bg-mist"
+          >
+            <span>Llamar</span>
+            <span class="text-sm font-semibold">{empresa.telefonoFijo}</span>
+          </a>
+        </li>
+        <li>
+          <a
+            href={`mailto:${empresa.correo}`}
+            class="flex flex-wrap items-center justify-between gap-2 rounded-lg border border-hairline bg-white px-5 py-4 font-display font-bold text-navy transition-colors hover:bg-mist"
+          >
+            <span>Correo</span>
+            <span class="text-sm font-semibold break-all">{empresa.correo}</span>
+          </a>
+        </li>
+      </ul>
+
+      <dl class="mt-8 space-y-3 border-t border-hairline pt-6 text-sm">
+        <div class="flex gap-2">
+          <dt class="font-bold text-navy">Horario:</dt>
+          <dd class="text-slate-ink">{empresa.horario}</dd>
+        </div>
+        <div class="flex gap-2">
+          <dt class="font-bold text-navy">Cobertura:</dt>
+          <dd class="text-slate-ink">Lima Metropolitana, con coordinación previa.</dd>
+        </div>
+        <div class="flex gap-2">
+          <dt class="font-bold text-navy">Respuesta:</dt>
+          <dd class="text-slate-ink">Promedio de 30 minutos en horario de atención.</dd>
+        </div>
+        <div class="flex gap-2">
+          <dt class="font-bold text-navy">Empresas:</dt>
+          <dd class="text-slate-ink">Emitimos comprobante. Indícanos los datos al cotizar.</dd>
+        </div>
+      </dl>
+    </aside>
   </Container>
+
+  <section class="bg-navy py-14 md:py-20">
+    <Container>
+      <h2 class="font-display text-2xl font-extrabold text-white sm:text-3xl">
+        Qué pasa después de enviar el formulario
+      </h2>
+      <ol class="mt-8 grid gap-4 sm:grid-cols-3">
+        {[
+          "Recibimos tu solicitud con el servicio y el distrito.",
+          "Te escribimos para confirmar detalles y darte el rango.",
+          "Agendamos la visita en el horario que te acomode.",
+        ].map((paso, i) => (
+          <li class="rounded-lg border border-white/10 bg-white/5 p-5">
+            <span class="flex h-9 w-9 items-center justify-center rounded-full bg-teal font-display text-sm font-bold text-white">
+              {i + 1}
+            </span>
+            <p class="mt-3 text-sm leading-relaxed text-mist/90">{paso}</p>
+          </li>
+        ))}
+      </ol>
+    </Container>
+  </section>
 </PageLayout>

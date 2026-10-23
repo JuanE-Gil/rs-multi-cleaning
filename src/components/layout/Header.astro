@@ -15,10 +15,13 @@ const { currentPage } = Astro.props;
 <header class="sticky top-0 z-40 bg-navy shadow-md">
   <Container class="flex h-18 items-center justify-between gap-4">
     <a href="/" class="shrink-0" aria-label={`${empresa.nombre} — inicio`}>
-      <!-- TODO: reemplazar por src/assets/brand/isologotipo-blanco.svg vía astro:assets -->
-      <span class="font-display text-lg font-extrabold text-white">
-        R&S <span class="text-teal-300">MULTI</span>
-      </span>
+      <img
+        src="/images/logo.png"
+        alt=""
+        width="48"
+        height="48"
+        class="h-12 w-12 rounded-full bg-white"
+      />
     </a>
 
     <nav aria-label="Principal" class="hidden items-center gap-7 md:flex">
