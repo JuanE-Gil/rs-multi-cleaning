@@ -1,4 +1,4 @@
-export type NavKey = "inicio" | "servicios" | "nosotros" | "contacto";
+export type NavKey = "inicio" | "servicios" | "nosotros" | "contacto" | "404";
 
 export interface NavLink {
     key: NavKey;
@@ -16,26 +16,26 @@ export const navLinks: NavLink[] = [
     {
         key: 'servicios',
         label: 'Servicios',
-        href: '/servicios'
+        href: '/services'
     },
 
     {
         key: 'nosotros',
         label: 'Nosotros',
-        href: '/quienes-somos'
+        href: '/about'
     },
 
     // TODO: Verificar si se necesita sección de cobertura
    // {
    //   key: 'cobertura',
    //   label: 'Cobertura',
-   //   href: '/cobertura'
+   //   href: '/coverage'
    // },
 
     {
         key: 'contacto',
         label: 'Contacto',
-        href: '/contacto'
+        href: '/contact'
     }
 
 ]

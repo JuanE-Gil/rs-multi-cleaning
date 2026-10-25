@@ -1,0 +1,29 @@
+---
+import PageLayout from "../layouts/PageLayout.astro";
+import Button from "../components/ui/Button.astro";
+import Container from "../components/ui/Container.astro";
+import { waLink } from "../utils/wa";
+---
+
+<PageLayout
+  title="Página no encontrada | R&S Multi Cleaning"
+  description="El enlace está roto o la página cambió de dirección. Vuelve al inicio, revisa los servicios o cotiza por WhatsApp."
+  currentPage="404"
+>
+  <section class="bg-mist">
+    <Container class="flex min-h-[70vh] flex-col justify-center py-20">
+      <p class="font-body text-sm font-bold uppercase tracking-widest text-teal-ink">Error 404</p>
+      <h1 class="mt-2 max-w-2xl font-display text-4xl font-extrabold leading-[1.15] tracking-tight text-navy sm:text-5xl">
+        No encontramos esta página
+      </h1>
+      <p class="mt-4 max-w-[56ch] text-lg leading-relaxed text-slate-ink">
+        El enlace está roto o la página cambió de dirección. Puedes volver al inicio, revisar los servicios o cotizar por WhatsApp.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <Button href="/" variant="primary" size="lg">Volver al inicio</Button>
+        <Button href="/services" variant="ghost" size="lg">Ver servicios</Button>
+        <Button href={waLink("404")} variant="wa" size="lg">Cotizar por WhatsApp</Button>
+      </div>
+    </Container>
+  </section>
+</PageLayout>

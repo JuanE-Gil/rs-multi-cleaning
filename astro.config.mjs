@@ -11,7 +11,7 @@ import icon from 'astro-icon';
 export default defineConfig({
     trailingSlash: 'never',
   integrations: [
-    sitemap({ filter: (p) => !p.includes('/gracias') && !p.includes('/legal/') }),
+    sitemap({ filter: (p) => !p.includes('/thanks') && !p.includes('/legal/') }),
     icon({ include: { lucide: ['sofa', 'bed-double', 'leaf', 'shield-check', 'bug-off'] } }),
   ],
   fonts: [
