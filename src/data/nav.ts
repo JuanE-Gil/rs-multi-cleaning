@@ -1,5 +1,7 @@
+export type NavKey = "inicio" | "servicios" | "nosotros" | "contacto";
+
 export interface NavLink {
-    key: string;
+    key: NavKey;
     label: string;
     href: string;
 }

@@ -34,6 +34,7 @@ Marketing site for R&S Multi Cleaning (Lima, Peru). Astro 7 + Preact + Tailwind 
 
 ## Project docs
 
+- `.ai-style-rules.md` — convenciones implícitas y DONTs. Read before writing or refactoring code.
 - `docs/STATUS.md` — blockers, constraints and delete-zone. Read at session start.
 - `docs/HISTORY.md` — durable decisions. Consult only when the task touches one.
 
