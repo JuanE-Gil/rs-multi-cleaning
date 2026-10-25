@@ -1,4 +1,4 @@
-export type NavKey = "inicio" | "servicios" | "nosotros" | "contacto";
+export type NavKey = "inicio" | "servicios" | "nosotros" | "contacto" | "404";
 
 export interface NavLink {
     key: NavKey;

@@ -9,7 +9,7 @@ Actualizar solo cuando cambie un blocker o se retire algo. La estructura vive en
 
 | # | Blocker | Evidencia |
 |---|---|---|
-| 1 | Tres páginas son archivos de 0 bytes: `src/pages/404.astro`, `cobertura.astro` y `gracias.astro`. Renderizan en blanco. | Tamaño 0 en disco; build del 2026-10-22 |
+| 1 | Dos páginas siguen en 0 bytes: `src/pages/coverage.astro` y `thanks.astro`. Renderizan en blanco. | Tamaño 0 en disco; build del 2026-10-25 |
 | 2 | `site` sin definir en `astro.config.mjs` → `@astrojs/sitemap` no genera sitemap ni URLs canónicas. | `astro.config.mjs`, warning del build |
 | 3 | Horario y dirección siguen sin confirmar en `src/data/empresa.ts`; teléfono, WhatsApp, correo y RUC ya son los datos reales de las tarjetas del cliente. | Comentarios TODO en el archivo |
 | 4 | Enlaces a `/legal/politica-de-privacidad` y `/legal/terminos-y-condiciones` sin página que los resuelva. | `Footer.astro`, `FinalCta.astro` |
