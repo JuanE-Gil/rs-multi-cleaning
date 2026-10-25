@@ -1,6 +1,6 @@
 export const empresa = {
   nombre: "R&S Multi Cleaning S.A.C.",
-  telefonoFijo: "977 383 121",
+  telefonoFijo: "993 905 978", // TEMPORAL para pruebas; real: 977 383 121
   whatsapp: "51993905978", // TEMPORAL para pruebas; real: 51977383121
   correo: "rsmulticleaning.servicios@gmail.com",
   ruc: "20616538439",

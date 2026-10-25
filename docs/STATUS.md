@@ -18,7 +18,7 @@ Actualizar solo cuando cambie un blocker o se retire algo. La estructura vive en
 | 7 | Solo el servicio de tapicería en tela tiene fotos antes/después. Los otros ocho muestran un placeholder honesto hasta que lleguen los casos de fase 0. | `src/data/servicios.ts` (`casoId`), `src/data/casos.ts` |
 | 8 | `servicios/index.astro` sigue siendo una maqueta de un solo título; el hub del informe (filtro por segmento y tabla método/material) no existe. | `src/pages/servicios/index.astro` |
 | 9 | `/contacto` no tiene mapa: no hay dirección comercial confirmada y se omitió el iframe de Maps por peso. | `src/pages/contacto.astro` |
-| 10 | WhatsApp temporal de pruebas `51993905978` en `src/data/empresa.ts` (`waLink` lo usa todo el sitio). Restaurar `51977383121` antes de publicar. | Comentario TEMPORAL en el archivo |
+| 10 | Teléfono y WhatsApp temporales de pruebas (`993 905 978` / `51993905978`) en `src/data/empresa.ts`; `tel:` y `waLink` los usan en todo el sitio. Restaurar `977 383 121` / `51977383121` antes de publicar. | Comentarios TEMPORAL en el archivo |
 
 ## Accesibilidad (WCAG 2.2 AA)
 
