@@ -3,7 +3,7 @@
 Rol: **Status**. Salud actual, blockers, umbrales y delete-zone.
 Actualizar solo cuando cambie un blocker o se retire algo. La estructura vive en el código, no aquí.
 
-**Build: PASS** (2026-10-22). `npm run build` genera 16 páginas sin errores; `npx astro check` no reporta errores.
+**Build: PASS** (2026-10-23). `npm run build` genera 16 páginas sin errores; `npx astro check` no reporta errores (2 hints, `Props` no usadas).
 
 ## Blockers
 
@@ -44,6 +44,15 @@ Rama `polish/interface-details`, creada desde `main` después de integrar la acc
 - Shell de la home: se retiró `rounded-lg`, borde y sombra de las 11 secciones; ahora son bandas full-bleed con `Container` interno y fondos alternos mist/blanco/navy. Se corrigió la colisión Testimonios–Cobertura y FAQ pasó a blanco con borde de control a 3.7:1. `#servicios` recibe `scroll-mt-24` para el header sticky.
 
 Límites: los enlaces del footer conservan 24 px de alto por densidad (la recomendación de 40–44 px no cabe sin romper el layout). Sin navegador real ni axe; verificación con build, `astro check` y revisión estática. Quedan diferidos el acento de `SectionHeading`, la línea de tiempo del proceso y la numeración de tarjetas de servicio: primero hay que validar el shell en navegador.
+
+## Convenciones de estilo para agentes (2026-10-23)
+
+Rama `polish/interface-details`, commits `58b218e` y `035140d`:
+
+- `.ai-style-rules.md` en la raíz: Golden Files, reglas de naming/estado y DONTs, derivadas de un full-scan de ~47 archivos. `AGENTS.md` lo referencia como lectura previa (hook suave, sin enforcement mecánico).
+- `NavKey` (`inicio|servicios|nosotros|contacto`) exportada en `src/data/nav.ts` y usada por `PageLayout`, `Header` y `NavMobile`; ya no circula `string` suelto.
+- Props tipadas con `Astro.props as Props`: verificado que `interface Props` solo tipa la API pública y que sin cast `Astro.props` es `any` dentro del componente (rompía `SectionHeading`).
+- Cabecera: nombre de marca "R&S Multi Cleaning" junto al logo en `Header.astro` (se había perdido al añadir el badge circular).
 
 ## Decisiones pendientes
 
