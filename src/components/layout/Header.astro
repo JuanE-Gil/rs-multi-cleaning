@@ -1,20 +1,24 @@
 ---
 import { empresa } from '../../data/empresa';
 import { navLinks } from '../../data/nav';
+import type { NavKey } from '../../data/nav';
 import Button from '../ui/Button.astro';
 import Container from '../ui/Container.astro';
 import NavMobile from './NavMobile.astro';
 
 interface Props {
-  currentPage: string;
+  currentPage: NavKey;
 }
 
 const { currentPage } = Astro.props;
+
+// Nombre de marca sin la terminación societaria, para la cabecera
+const nombreMarca = empresa.nombre.replace(" S.A.C.", "");
 ---
 
 <header class="sticky top-0 z-40 bg-navy shadow-md">
   <Container class="flex h-18 items-center justify-between gap-4">
-    <a href="/" class="shrink-0" aria-label={`${empresa.nombre} — inicio`}>
+    <a href="/" class="flex shrink-0 items-center gap-2.5" aria-label={`${empresa.nombre} — inicio`}>
       <img
         src="/images/logo.png"
         alt=""
@@ -22,6 +26,9 @@ const { currentPage } = Astro.props;
         height="48"
         class="h-12 w-12 rounded-full bg-white"
       />
+      <span class="font-display text-base leading-tight font-extrabold text-white sm:text-lg">
+        {nombreMarca}
+      </span>
     </a>
 
     <nav aria-label="Principal" class="hidden items-center gap-7 md:flex">

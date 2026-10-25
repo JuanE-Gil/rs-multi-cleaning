@@ -1,10 +1,11 @@
 ---
 import { navLinks } from '../../data/nav';
+import type { NavKey } from '../../data/nav';
 import { empresa } from '../../data/empresa';
 import Button from '../ui/Button.astro';
 
 interface Props {
-  currentPage: string;
+  currentPage: NavKey;
 }
 
 const { currentPage } = Astro.props;
