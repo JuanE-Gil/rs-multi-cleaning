@@ -5,6 +5,10 @@ import SectionHeading from "../ui/SectionHeading.astro";
 import { serviciosDestacados } from "../../data/servicios";
 import Card from "../ui/Card.astro";
 import ImagePlaceholder from "../ui/ImagePlaceholder.astro";
+import Button from "../ui/Button.astro";
+
+const lista = serviciosDestacados.filter((s) => s.destacado);
+if (lista.length !== 3) throw new Error("La home esperaba exactamente 3 servicios destacados");
 ---
 
 <section
@@ -14,12 +18,12 @@ import ImagePlaceholder from "../ui/ImagePlaceholder.astro";
   <Container>
     <SectionHeading
       eyebrow="Servicios"
-      title="Nueve servicios, un solo proveedor"
+      title="Tres servicios para empezar"
       subtitle="Cada tratamiento se adapta al material: agua, seco, vapor."
     />
 
     <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-      {serviciosDestacados.map((s) => (
+      {lista.map((s) => (
         <Card class="flex flex-col gap-3">
           <ImagePlaceholder label={s.imagenAlt} ratio="16/9" />
           <h3 class="font-display text-lg font-bold text-navy">{s.nombre}</h3>
@@ -37,5 +41,13 @@ import ImagePlaceholder from "../ui/ImagePlaceholder.astro";
         </Card>
       ))}
     </div>
+
+    <div class="mt-10">
+      <Button
+        href="/services"
+        variant="secondary"
+        size="lg">Ver todos los servicios</Button>
+    </div>
+
   </Container>
 </section>

@@ -1,0 +1,58 @@
+---
+import Button from "../ui/Button.astro";
+import ImagePlaceholder from "../ui/ImagePlaceholder.astro";
+import { casosAntesDespues, type CasoAntesDespues } from "../../data/casos";
+import type { ServicioResumen } from "../../data/servicios";
+import { waLink } from "../../utils/wa";
+
+interface Props {
+  s: ServicioResumen;
+}
+
+const { s } = Astro.props as Props;
+const caso: CasoAntesDespues | undefined = s.casoId
+  ? casosAntesDespues.find((c) => c.id === s.casoId)
+  : undefined;
+---
+
+<article class="grid items-stretch gap-6 md:grid-cols-2">
+  {caso ? (
+    <figure class="grid h-full grid-cols-2 gap-2">
+      <img
+        src={caso.antesImg}
+        alt={caso.antesAlt}
+        width="800"
+        height="600"
+        loading="lazy"
+        decoding="async"
+        class="col-span-2 aspect-[4/3] w-full object-cover"
+      />
+      <img
+        src={caso.despuesImg}
+        alt={caso.despuesAlt}
+        width="800"
+        height="600"
+        loading="lazy"
+        decoding="async"
+        class="aspect-square w-full object-cover"
+      />
+      <div class="flex items-end bg-navy p-4">
+        <p class="text-xs font-bold uppercase leading-relaxed tracking-widest text-white/90">
+          {caso.descripcion}
+        </p>
+      </div>
+    </figure>
+  ) : (
+    <ImagePlaceholder label={s.imagenAlt} ratio="16/9" />
+  )}
+
+  <div class="flex flex-col gap-3">
+    <h3 class="font-display text-xl font-bold text-navy">{s.nombre}</h3>
+    <span class="text-sm font-bold uppercase tracking-wide text-teal-ink">{s.metodo}</span>
+    <p class="text-sm leading-relaxed text-slate-ink">{s.bajada}</p>
+    <div class="mt-auto flex flex-wrap gap-3 pt-2">
+      <Button href={`/services/${s.slug}`} variant="secondary">Ver detalle</Button>
+      <Button href={waLink(`hub-${s.slug}`)} variant="wa">Cotizar por WhatsApp</Button>
+    </div>
+  </div>
+</article>

@@ -7,6 +7,8 @@ export interface ServicioResumen {
   slug: string;
   nombre: string;
   metodo: string;
+  segmento: "Hogar" | "Automotriz";
+  destacado?: boolean;
   // precioDesde: string; // TODO(fase 0): confirmar precios reales antes de publicarlos
   imagenAlt: string;
   casoId?: string;
@@ -26,6 +28,8 @@ export const serviciosDestacados: ServicioResumen[] = [
     slug: "tapiceria-en-tela",
     nombre: "Tapicería en tela",
     metodo: "Inyección-extracción + vapor",
+    segmento: "Hogar",
+    destacado: true,
     imagenAlt: "Sofá de tela limpio",
     casoId: "sofa-surco-01",
     bajada:
@@ -71,6 +75,7 @@ export const serviciosDestacados: ServicioResumen[] = [
     slug: "tapiceria-en-cuero",
     nombre: "Tapicería en cuero",
     metodo: "pH neutro + nutrición",
+    segmento: "Hogar",
     imagenAlt: "Sofá de cuero limpio",
     bajada:
       "Limpieza con productos de pH neutro, más nutrición e hidratación para ayudar a prevenir resequedad y grietas.",
@@ -115,6 +120,7 @@ export const serviciosDestacados: ServicioResumen[] = [
     slug: "cabeceras-tapizadas",
     nombre: "Cabeceras tapizadas",
     metodo: "Extracción + vapor",
+    segmento: "Hogar",
     imagenAlt: "Cabecera de cama tapizada limpia",
     bajada:
       "Eliminación de manchas, polvo, grasa, alérgenos y olores, cuidando el tejido y las costuras de la cabecera.",
@@ -159,6 +165,7 @@ export const serviciosDestacados: ServicioResumen[] = [
     slug: "box-tarima-y-bases-de-cama",
     nombre: "Box tarima / Bases de cama",
     metodo: "Aspirado profundo + vapor",
+    segmento: "Hogar",
     imagenAlt: "Base de cama box tarima limpia",
     bajada:
       "Limpieza profunda de laterales y bordes para retirar polvo, pelusas y ácaros acumulados en la base.",
@@ -203,6 +210,8 @@ export const serviciosDestacados: ServicioResumen[] = [
     slug: "desinfeccion-de-colchones",
     nombre: "Colchones",
     metodo: "Vapor anti ácaros",
+    segmento: "Hogar",
+    destacado: true,
     imagenAlt: "Colchón higienizado",
     bajada:
       "Succión y desinfección profunda para reducir ácaros, polvo, residuos dérmicos, moho y bacterias.",
@@ -246,6 +255,8 @@ export const serviciosDestacados: ServicioResumen[] = [
     slug: "lavado-de-alfombras",
     nombre: "Alfombras",
     metodo: "Extracción profunda",
+    segmento: "Hogar",
+    destacado: true,
     imagenAlt: "Alfombra limpia",
     bajada:
       "Limpieza mecánica profunda, extracción de suciedad incrustada, neutralización de olores y recuperación de fibras.",
@@ -290,6 +301,7 @@ export const serviciosDestacados: ServicioResumen[] = [
     slug: "lavado-de-roller",
     nombre: "Roller",
     metodo: "Lavado controlado",
+    segmento: "Hogar",
     imagenAlt: "Persiana roller limpia",
     bajada:
       "Lavado controlado y limpieza profunda, incluyendo manchas y moho, cuidando el mecanismo y el tejido.",
@@ -334,6 +346,7 @@ export const serviciosDestacados: ServicioResumen[] = [
     slug: "limpieza-interior-automotriz",
     nombre: "Interior automotriz",
     metodo: "Limpieza profunda + neutralización",
+    segmento: "Automotriz",
     imagenAlt: "Interior de auto limpio",
     bajada:
       "Asientos de tela o cuero, puertas, moquetas, maletero y techo: limpieza profunda y neutralización de olores.",
@@ -378,6 +391,7 @@ export const serviciosDestacados: ServicioResumen[] = [
     slug: "linea-infantil",
     nombre: "Línea infantil",
     metodo: "Limpieza y desinfección",
+    segmento: "Hogar",
     imagenAlt: "Coche de bebé limpio",
     bajada:
       "Limpieza y desinfección de coches de bebé, sillas de retención infantil (SRI) y corral de tela.",

@@ -1,11 +1,120 @@
 ---
 import Container from "../../components/ui/Container.astro";
 import SectionHeading from "../../components/ui/SectionHeading.astro";
+import Button from "../../components/ui/Button.astro";
+import ServiceCard from "../../components/sections/ServiceCard.astro";
+import { segmentos } from "../../data/segmentos";
+import { serviciosDestacados } from "../../data/servicios";
 import PageLayout from "../../layouts/PageLayout.astro";
+
+const servicios = serviciosDestacados;
+const hogar = servicios.filter((s) => s.segmento === "Hogar");
+const automotriz = servicios.filter((s) => s.segmento === "Automotriz");
+const corporativo = segmentos.find((g) => g.nombre === "Corporativo");
+const industrial = segmentos.find((g) => g.nombre === "Industrial");
 ---
 
-<PageLayout title="Servicios | R&S Multi Cleaning" currentPage="servicios">
-  <Container class="py-16 space-y-8 min-h-[75vh]">
-    <SectionHeading as="h1" title="Servicios" align="center" />
-  </Container>
+<PageLayout
+  title="Servicios | R&S Multi Cleaning"
+  description="Lavado y desinfección de tapicería, colchones, alfombras y más, a domicilio en Lima y Callao. Conoce los nueve servicios de R&S Multi Cleaning."
+  currentPage="servicios"
+>
+  <section class="bg-mist">
+    <Container class="py-16 md:py-24">
+      <SectionHeading
+        as="h1"
+        eyebrow="Servicios"
+        title="Nueve tratamientos a domicilio"
+        subtitle="Cada material define el tratamiento: agua, seco o vapor. Cotización por WhatsApp con una foto del área."
+      />
+    </Container>
+  </section>
+
+  <section class="py-16 md:py-24">
+    <Container>
+      <SectionHeading
+        title="Para tu casa"
+        subtitle="Tapicería, dormitorio, pisos y línea infantil."
+      />
+      <div class="mt-10 space-y-10">
+        {hogar.map((s) => (
+          <ServiceCard s={s} />
+        ))}
+      </div>
+    </Container>
+  </section>
+
+  <section class="bg-mist">
+    <Container class="py-16 md:py-24">
+      <SectionHeading title="Para tu auto" subtitle="Interior completo, en el lugar que indiques." />
+      <div class="mt-10">
+        {automotriz.map((s) => (
+          <ServiceCard s={s} />
+        ))}
+      </div>
+    </Container>
+  </section>
+
+  <section class="bg-navy">
+    <Container class="py-16 md:py-24">
+      <SectionHeading
+        eyebrow="Corporativo e industrial"
+        title="Los mismos tratamientos a escala"
+        subtitle="Oficinas, condominios, plantas y almacenes, coordinados como cotización por volumen o mantenimiento."
+        tone="light"
+      />
+      <div class="mt-8">
+        <Button href={corporativo?.href ?? "/contact"} variant="wa" size="lg">
+          {corporativo?.cta ?? "Hablar con ventas"}
+        </Button>
+      </div>
+    </Container>
+  </section>
+
+  <section class="py-16 md:py-24">
+    <Container>
+      <SectionHeading
+        eyebrow="Método"
+        title="Método por servicio"
+        subtitle="El precio varía según tamaño, material y estado. Te damos un rango por WhatsApp con una foto."
+        align="left"
+      />
+      <div
+        class="mt-8 overflow-x-auto"
+        tabindex="0"
+        role="region"
+        aria-label="Tabla de métodos por servicio"
+      >
+        <table class="w-full min-w-[480px] text-sm">
+          <thead>
+            <tr class="border-b border-hairline text-left">
+              <th scope="col" class="py-3 font-display font-bold text-navy">Servicio</th>
+              <th scope="col" class="hidden py-3 font-display font-bold text-navy sm:table-cell">Método</th>
+              <th scope="col" class="py-3 text-right font-display font-bold text-navy">Detalle</th>
+            </tr>
+          </thead>
+          <tbody>
+            {servicios.map((s) => (
+              <tr class="border-b border-hairline/50">
+                <td class="py-3 font-semibold text-navy">{s.nombre}</td>
+                <td class="hidden py-3 text-slate-ink sm:table-cell">{s.metodo}</td>
+                <td class="py-3 text-right">
+                  <a
+                    href={`/services/${s.slug}`}
+                    aria-label={`Ver detalle de ${s.nombre}`}
+                    class="inline-flex min-h-6 items-center font-bold text-teal-ink transition-colors hover:text-navy"
+                  >
+                    Ver →
+                  </a>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="mt-6 text-sm text-slate-ink">
+        {industrial?.descripcion} Cada material se diagnostica antes de aplicar el tratamiento.
+      </p>
+    </Container>
+  </section>
 </PageLayout>

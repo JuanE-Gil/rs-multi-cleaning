@@ -15,8 +15,8 @@ Actualizar solo cuando cambie un blocker o se retire algo. La estructura vive en
 | 4 | Enlaces a `/legal/politica-de-privacidad` y `/legal/terminos-y-condiciones` sin página que los resuelva. | `Footer.astro`, `FinalCta.astro` |
 | 5 | `PUBLIC_FORM_ENDPOINT` no definido: el formulario de cotización postea a `#`. | `FinalCta.astro` línea 9 |
 | 6 | Sin precios reales: `ServicesGrid` oculta `precioDesde` y las páginas de detalle no publican tarifa, solo explican qué la hace variar. | `src/data/servicios.ts` |
-| 7 | Solo el servicio de tapicería en tela tiene fotos antes/después. Los otros ocho muestran un placeholder honesto hasta que lleguen los casos de fase 0. | `src/data/servicios.ts` (`casoId`), `src/data/casos.ts` |
-| 8 | `services/index.astro` sigue siendo una maqueta de un solo título; el hub del informe (filtro por segmento y tabla método/material) no existe. | `src/pages/services/index.astro` |
+| 7 | Solo el servicio de tapicería en tela tiene fotos antes/después. Los otros ocho muestran un placeholder honesto en el hub (`ServiceCard`); el collage solo se renderiza vía `casoId` en `casos.ts`. Falta la sesión de fotos de fase 0 para los 8 collages restantes. | `src/pages/services/index.astro`, `src/components/sections/ServiceCard.astro` |
+| 8 | Hub resuelto el 2026-10-25: lista las 9 fichas agrupadas (Hogar/Autos), banda Corporativo-Industrial y tabla método. Deuda: columna `material` de la tabla, pendiente del cliente (checkpoint 05-11). | `src/pages/services/index.astro` |
 | 9 | `/contact` no tiene mapa: no hay dirección comercial confirmada y se omitió el iframe de Maps por peso. | `src/pages/contact.astro` |
 | 10 | Teléfono y WhatsApp temporales de pruebas (`993 905 978` / `51993905978`) en `src/data/empresa.ts`; `tel:` y `waLink` los usan en todo el sitio. Restaurar `977 383 121` / `51977383121` antes de publicar. | Comentarios TEMPORAL en el archivo |
 
@@ -58,6 +58,15 @@ Rama `polish/interface-details`, commits `58b218e` y `035140d`:
 ## Renombrado de rutas a inglés (2026-10-25)
 
 Rama `rename/english-routes` (desde `polish/interface-details`, sin integrar): las páginas pasan a `/services`, `/about`, `/contact`, `/coverage` y `/thanks`; los `href` de nav, segmentos, hero, grillas, footer, sitemap y breadcrumbs fueron actualizados en la misma pasada. Los keys de `NavKey` y todo el copy siguen en español. Si se deshace la rama, hay que devolver estos cinco nombres de archivo y sus referencias.
+
+## Hub de servicios y destacados (2026-10-25)
+
+Rama `feat/services-hub` (desde `main` con el renombrado integrado):
+
+- Home: de 9 cards a 3 destacados (`destacado: true` en `servicios.ts`: tela, colchones, alfombras) + botón "Ver todos los servicios". El build falla si el número de destacados ≠ 3 — la selección es dato, nunca por orden del array ni azar (council 4/4 descartó el sorteo).
+- Hub `/services`: hero + grupo "Para tu casa" (8 fichas horizontales), grupo "Para tu auto" (1 ficha), banda `bg-navy` Corporativo/Industrial con CTA a `corporativo.href`, y tabla método (Servicio · Método · Detalle) con región desplazable accesible. Columna `material` no existe: quedará para el checkpoint del 05-11.
+- Ficha: `ServiceCard.astro` reutilizable; collage solo cuando `casoId` existe en `casos.ts` (2 fotos reales + tile `bg-navy` con `descripcion`); si no hay caso, `ImagePlaceholder` 16/9. Las fotos de un servicio nunca se reutilizan en otro.
+- Mapeo `segmento` ("Hogar" ×8, "Automotriz" ×1 en `servicios.ts`) es propuesta editorial; corroborar con el cliente el 2026-11-05.
 
 ## Decisiones pendientes
 
