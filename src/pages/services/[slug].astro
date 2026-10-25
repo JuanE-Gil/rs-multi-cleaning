@@ -47,7 +47,7 @@ const faqJsonLd = JSON.stringify({
         <ol class="flex flex-wrap items-center gap-2">
           <li><a href="/" class="inline-flex min-h-6 items-center transition-colors hover:text-navy">Inicio</a></li>
           <li aria-hidden="true">/</li>
-          <li><a href="/servicios" class="inline-flex min-h-6 items-center transition-colors hover:text-navy">Servicios</a></li>
+          <li><a href="/services" class="inline-flex min-h-6 items-center transition-colors hover:text-navy">Servicios</a></li>
           <li aria-hidden="true">/</li>
           <li aria-current="page" class="font-semibold text-navy">{servicio.nombre}</li>
         </ol>
@@ -62,7 +62,7 @@ const faqJsonLd = JSON.stringify({
       </p>
 
       <div class="mt-7 flex flex-wrap gap-3">
-        <Button href="/contacto" variant="primary" size="lg">
+        <Button href="/contact" variant="primary" size="lg">
           Solicitar cotización
         </Button>
         <Button href={wa} variant="wa" size="lg">
@@ -223,7 +223,7 @@ const faqJsonLd = JSON.stringify({
           <h3 class="font-display text-lg font-bold text-navy">{s.nombre}</h3>
           <p class="mt-1 text-sm text-slate-ink">{s.metodo}</p>
           <a
-            href={`/servicios/${s.slug}`}
+            href={`/services/${s.slug}`}
             aria-label={`Ver detalle de ${s.nombre}`}
             class="mt-4 inline-flex min-h-6 items-center text-sm font-bold text-teal-ink transition-colors hover:text-navy"
           >
@@ -244,7 +244,7 @@ const faqJsonLd = JSON.stringify({
       </p>
       <div class="mt-7 flex flex-wrap justify-center gap-3">
         <Button href={wa} variant="wa" size="lg">Cotizar por WhatsApp</Button>
-        <Button href="/contacto" variant="ghost" size="lg">Dejar mis datos</Button>
+        <Button href="/contact" variant="ghost" size="lg">Dejar mis datos</Button>
       </div>
     </Container>
   </section>

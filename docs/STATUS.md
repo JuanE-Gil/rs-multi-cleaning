@@ -16,8 +16,8 @@ Actualizar solo cuando cambie un blocker o se retire algo. La estructura vive en
 | 5 | `PUBLIC_FORM_ENDPOINT` no definido: el formulario de cotización postea a `#`. | `FinalCta.astro` línea 9 |
 | 6 | Sin precios reales: `ServicesGrid` oculta `precioDesde` y las páginas de detalle no publican tarifa, solo explican qué la hace variar. | `src/data/servicios.ts` |
 | 7 | Solo el servicio de tapicería en tela tiene fotos antes/después. Los otros ocho muestran un placeholder honesto hasta que lleguen los casos de fase 0. | `src/data/servicios.ts` (`casoId`), `src/data/casos.ts` |
-| 8 | `servicios/index.astro` sigue siendo una maqueta de un solo título; el hub del informe (filtro por segmento y tabla método/material) no existe. | `src/pages/servicios/index.astro` |
-| 9 | `/contacto` no tiene mapa: no hay dirección comercial confirmada y se omitió el iframe de Maps por peso. | `src/pages/contacto.astro` |
+| 8 | `services/index.astro` sigue siendo una maqueta de un solo título; el hub del informe (filtro por segmento y tabla método/material) no existe. | `src/pages/services/index.astro` |
+| 9 | `/contact` no tiene mapa: no hay dirección comercial confirmada y se omitió el iframe de Maps por peso. | `src/pages/contact.astro` |
 | 10 | Teléfono y WhatsApp temporales de pruebas (`993 905 978` / `51993905978`) en `src/data/empresa.ts`; `tel:` y `waLink` los usan en todo el sitio. Restaurar `977 383 121` / `51977383121` antes de publicar. | Comentarios TEMPORAL en el archivo |
 
 ## Accesibilidad (WCAG 2.2 AA)
@@ -54,6 +54,10 @@ Rama `polish/interface-details`, commits `58b218e` y `035140d`:
 - `NavKey` (`inicio|servicios|nosotros|contacto`) exportada en `src/data/nav.ts` y usada por `PageLayout`, `Header` y `NavMobile`; ya no circula `string` suelto.
 - Props tipadas con `Astro.props as Props`: verificado que `interface Props` solo tipa la API pública y que sin cast `Astro.props` es `any` dentro del componente (rompía `SectionHeading`).
 - Cabecera: nombre de marca "R&S Multi Cleaning" junto al logo en `Header.astro` (se había perdido al añadir el badge circular).
+
+## Renombrado de rutas a inglés (2026-10-25)
+
+Rama `rename/english-routes` (desde `polish/interface-details`, sin integrar): las páginas pasan a `/services`, `/about`, `/contact`, `/coverage` y `/thanks`; los `href` de nav, segmentos, hero, grillas, footer, sitemap y breadcrumbs fueron actualizados en la misma pasada. Los keys de `NavKey` y todo el copy siguen en español. Si se deshace la rama, hay que devolver estos cinco nombres de archivo y sus referencias.
 
 ## Decisiones pendientes
 
